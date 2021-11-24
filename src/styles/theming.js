@@ -14,7 +14,7 @@ export const theme = {
     background: '#F8F8F8',
     placeholder:'#FFFFFF',
     disabled: '#6E6E6E',
-    
+
   },
 
   roundness: 4, // Degré de rondeur des éléments type boutons

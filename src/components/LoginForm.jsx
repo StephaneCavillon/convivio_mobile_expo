@@ -21,12 +21,18 @@ export default function LoginForm (props) {
     <View style={styles.container}>
       <Text style={styles.label}>Identifiant</Text>
       <TextInput
+        mode='outlined'
+        selectionColor={theme.colors.orange}
+        activeOutlineColor={theme.colors.orange}
         onChangeText={handleChange('pseudo')}
         onBlur={handleBlur('pseudo')}
         value={values.pseudo}
       />
       <Text style={styles.label}>Mot de passe</Text>
       <TextInput
+        mode='outlined'
+        selectionColor={theme.colors.orange}
+        activeOutlineColor={theme.colors.orange}
         onChangeText={handleChange('password')}
         onBlur={handleBlur('password')}
         value={values.password}
@@ -47,8 +53,12 @@ export default function LoginForm (props) {
         mode='contained'
         style={styles.button}
         color={theme.colors.orange}
+        labelStyle={{color: theme.colors.pureWhite}}
         onPress={handleSubmit}
-        title="Valider" />
+        title="Valider"
+      >
+          Valider
+      </Button>
     </View>
     )}
   </Formik>
@@ -64,6 +74,6 @@ const styles = StyleSheet.create({
     color: theme.colors.pureWhite,
   },
   button: {
-   borderRadius: 3
+   borderRadius: 5
   }
 })
