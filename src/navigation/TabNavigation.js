@@ -15,12 +15,12 @@ export default function TabNavigation() {
     <NavigationContainer>
       <Tab.Navigator
         activeColor={theme.colors.pureWhite}
-        barStyle={{ 
+        barStyle={{
           backgroundColor: theme.colors.backdrop,
           height: 60,
           }}
       >
-        <Tab.Screen 
+        <Tab.Screen
           name="Messages"
           component={ChatScreen}
           options={{
@@ -34,7 +34,7 @@ export default function TabNavigation() {
             ),
           }}
         />
-        <Tab.Screen 
+        <Tab.Screen
           name="Accueil"
           component={DashboardScreen}
           options={{
@@ -44,7 +44,7 @@ export default function TabNavigation() {
             ),
           }}
         />
-        <Tab.Screen 
+        <Tab.Screen
           name="Options"
           component={OptionsScreen}
           options={{
@@ -57,4 +57,4 @@ export default function TabNavigation() {
       </Tab.Navigator>
     </NavigationContainer>
   );
-}    
+}
