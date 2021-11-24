@@ -4,7 +4,8 @@ import { API } from '../utils/api'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export default function LoginScreen () {
+export default function LoginScreen ({ navigation }) {
+
   async function sendLoginRequest (credentials) {
     const data = {
       pseudo: credentials.pseudo,
@@ -16,7 +17,7 @@ export default function LoginScreen () {
       if (user.status === 200) {
         await registerToken(user)
         await AsyncStorage.setItem('userId', user.data.user._id)
-        // history.push('/') // redirect to home page
+        navigation.navigate('Dashboard') // redirect to DashBoardScreen
       } else {
         console.log(user.statusText) // Status message from server response
       }
