@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { theme } from '../styles/theming'
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -26,6 +25,10 @@ export default function TabNavigation() {
           component={ChatScreen}
           options={{
             tabBarLabel: 'Messages',
+            tabBarBadge: 1, // à modifier selon les notifs entrantes
+            tabBarBadgeStyle: { // stylisation du badge à revoir, n'est pas pris en compte **
+              backgroundColor: theme.colors.orange
+            },
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="email" color={color} size={26} />
             ),
