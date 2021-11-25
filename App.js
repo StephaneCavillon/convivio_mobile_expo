@@ -11,7 +11,7 @@ export default function App() {
   async function auth() {
     const isLogged = await AsyncStorage.getItem('isLogged')
     if (isLogged) {
-      setConnected(true)
+      setIsLogged(true)
     }
   }
 
