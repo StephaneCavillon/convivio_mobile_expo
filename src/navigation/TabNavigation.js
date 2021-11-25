@@ -6,7 +6,7 @@ import { MainStackNavigator, ChatStackNavigator, OptionStackNavigator } from './
 
 const Tab = createMaterialBottomTabNavigator()
 
-export default function TabNavigation() {
+export function TabNavigation() {
   return(
     <Tab.Navigator
       initialRouteName='Home'

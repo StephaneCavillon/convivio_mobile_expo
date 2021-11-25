@@ -4,7 +4,7 @@ import { theme } from '../styles/theming';
 import Button from '../components/Button'
 
 
-export default function Home() {
+export default function Home({ navigation }) {
   return(
     <View>
       <StatusBar
@@ -51,7 +51,7 @@ export default function Home() {
         </Text>
       </View>
       <View style={{top: 285}}>
-        <Button title="Let's go !"/>
+        <Button title="Let's go !" onPress={ () => navigation.navigate('Login') }/>
       </View>
     </View>
   )

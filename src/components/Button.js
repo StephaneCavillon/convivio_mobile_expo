@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper'
 import { theme } from '../styles/theming'
 
 export default function GeneralButton(props){
-  const { title } = props;
+  const { title, onPress } = props;
   return(
     <View>
       <Button
@@ -12,6 +12,7 @@ export default function GeneralButton(props){
           style={styles.button}
           color={theme.colors.orange}
           labelStyle={{color: theme.colors.pureWhite}}
+          onPress={onPress}
         >
           {title}
       </Button>

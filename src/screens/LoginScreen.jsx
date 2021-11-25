@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, StatusBar } from 'react-native'
+import React, { useContext } from 'react'
+import { View, StatusBar, Image, StyleSheet } from 'react-native'
 import { API } from '../utils/api'
+import Context from '../utils/context/Context'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-export default function LoginScreen ({ navigation }) {
+export default function LoginScreen () {
+  const [ isLogged, setIsLogged ] = useContext(Context)
 
   async function sendLoginRequest (credentials) {
     const data = {
@@ -17,8 +19,8 @@ export default function LoginScreen ({ navigation }) {
       if (user.status === 200) {
         await registerToken(user)
         await AsyncStorage.setItem('userId', user.data.user._id)
-        await AsyncStorage.setItem('connected', true)
-        navigation.navigate('Dashboard') // redirect to DashBoardScreen
+        await AsyncStorage.setItem('isLogged', 'true')
+        setIsLogged(true)
       } else {
         console.log(user.statusText) // Status message from server response
       }
@@ -40,7 +42,40 @@ export default function LoginScreen ({ navigation }) {
         translucent
         backgroundColor={"transparent"}
       />
+      {/* <Image
+        source={require('../assets/img/ConvivioBlanc.png')}
+        style={styles.logo}
+        resizeMode='contain'
+      >
+      </Image> */}
       <LoginForm sendLoginRequest={sendLoginRequest}/>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  coverImage: {
+    width: '100%',
+    height: 850,
+  },
+
+  darkness: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    width: '100%',
+    height: 850,
+  },
+
+  logo: {
+    width: '70%',
+    justifyContent: 'center',
+    zIndex: 1,
+    position: 'absolute',
+    top: 150,
+  },
+})

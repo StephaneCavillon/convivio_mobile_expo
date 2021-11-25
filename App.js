@@ -3,26 +3,29 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { NavigationContainer } from '@react-navigation/native'
 import { LoginStackNavigator } from './src/navigation/StackNavigation'
 import { TabNavigation } from './src/navigation/TabNavigation'
+import Context from './src/utils/context/Context'
 
 export default function App() {
-  const [ connected, setConnected ] = useState(false)
+  const [ isLogged, setIsLogged ] = useState(false)
 
   async function auth() {
-    const connected = await AsyncStorage.getItem('connected')
-    if (connected) {
-      setConnected(connected)
+    const isLogged = await AsyncStorage.getItem('isLogged')
+    if (isLogged) {
+      setConnected(true)
     }
   }
 
-  useEffect(() => auth(), [])
+  useEffect(() => auth(), [isLogged])
 
   return (
-    <NavigationContainer>
-      { !connected ?
-        <LoginStackNavigator/> :
-        <TabNavigation />
-      }
-    </NavigationContainer>
+    <Context.Provider value={ [ isLogged, setIsLogged ] }>
+      <NavigationContainer>
+        { !isLogged ?
+          <LoginStackNavigator/> :
+          <TabNavigation />
+        }
+      </NavigationContainer>
+    </Context.Provider>
   );
 
 }
