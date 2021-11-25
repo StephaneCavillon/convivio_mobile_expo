@@ -5,43 +5,46 @@ import { theme } from '../styles/theming';
 
 export default function Home() {
   return(
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/img/background-home.jpg')}
-        style={styles.coverImage}
-      >
-        <View style={styles.darkness} />
-      </ImageBackground>
-      <Image
-        source={require('../assets/img/ConvivioBlanc.png')}
-        style={styles.logo}
-        resizeMode='contain'
-      >
-      </Image>
-      <Text style={{
-        color: theme.colors.pureWhite,
-        fontSize: 15,
-        zIndex: 1, 
-        position: 'absolute',
-        top: 250,
-        left: '44.5%',
-        }}
-      >
-        Agence évènementielle
-      </Text>
-      <Text style={{
-        color: theme.colors.pureWhite,
-        fontSize: 22,
-        fontWeight: '600',
-        textAlign: 'center',
-        zIndex: 1, 
-        position: 'absolute',
-        padding: 60,
-        top: 280
-        }}
-      >
-        Organisons votre évènement ensemble
-      </Text>
+    <View>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../assets/img/background-home.jpg')}
+          style={styles.coverImage}
+        >
+          <View style={styles.darkness} />
+        </ImageBackground>
+        <Image
+          source={require('../assets/img/ConvivioBlanc.png')}
+          style={styles.logo}
+          resizeMode='contain'
+        >
+        </Image>
+        <Text style={{
+          color: theme.colors.pureWhite,
+          fontSize: 22,
+          fontWeight: '600',
+          textAlign: 'center',
+          zIndex: 1, 
+          position: 'absolute',
+          padding: 60,
+          top: 280
+          }}
+        >
+          Organisons votre évènement ensemble
+        </Text>
+      </View>
+      <View style={{ flexDirection: 'column', alignItems: 'flex-end', margin: 60}}>
+        <Text style={{
+          color: theme.colors.pureWhite,
+          fontSize: 15,
+          zIndex: 1, 
+          position: 'absolute',
+          top: 190,
+          }}
+        >
+          Agence évènementielle
+        </Text>
+      </View>
     </View>
   )
 }
