@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image, ImageBackground, StyleSheet, Text } from 'react-native';
-import { theme } from '../styles/theming';
+import { View, Image, ImageBackground, Text } from 'react-native';
+import { theme, styles } from '../styles/theming';
 import Button from '../components/Button'
 
 
@@ -47,34 +47,10 @@ export default function Home() {
         </Text>
       </View>
       <View style={{top: 285}}>
-        <Button title="Let's go !"/>
+        <Button 
+          title="Let's go !"
+        />
       </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
-  coverImage: {
-    width: '100%',
-    height: 850,
-  },
-
-  darkness: {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    width: '100%',
-    height: 850,
-  },
-
-  logo: {
-    width: '70%',
-    zIndex: 1, 
-    position: 'absolute',
-    top: 150,
-  },
-})

@@ -5,17 +5,17 @@ import { NavigationContainer } from '@react-navigation/native'
 import StackNavigator from './src/navigation/StackNavigation'
 
 import Home from './src/screens/HomeScreen'
+import Dashboard from './src/screens/DashboardScreen'
 
 
 export default function App() {
   return (
     <View >
-      <Home />
+      <Dashboard />
+      <NavigationContainer>
+        <TabNavigation />
+      </NavigationContainer>
       {/* <StatusBar style="auto" /> */}
     </View>
-
-    // <NavigationContainer>
-    //   <TabNavigation />
-    // </NavigationContainer>
   );
 }

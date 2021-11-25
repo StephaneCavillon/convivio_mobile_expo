@@ -1,5 +1,5 @@
 import { CurrentRenderContext } from '@react-navigation/native'
-import logo from '../assets/img/ConvivioBlanc.png'
+import { StyleSheet } from 'react-native';
 
 export const theme = {
   colors: {
@@ -23,3 +23,29 @@ export const theme = {
 
   // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
 }
+
+export const styles = StyleSheet.create({ // Style background image (utilisé sur le home par ex)
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  coverImage: {
+    width: '100%',
+    height: 850,
+  },
+
+  darkness: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    width: '100%',
+    height: 850,
+  },
+
+  logo: {
+    width: '70%',
+    zIndex: 1, 
+    position: 'absolute',
+    top: 150,
+  },
+})

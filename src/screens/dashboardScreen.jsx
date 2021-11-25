@@ -1,18 +1,18 @@
 import React from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar, Text, View, Image } from 'react-native';
 import { Button } from 'react-native-paper';
+import { theme } from '../styles/theming';
+import Header from '../components/Header'
+
 
 export default function Dashboard({navigation}) {
-
   return(
-    <View>
+    <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
-      <Text>
-        Dashboard screen
-      </Text>
-      <Button icon="camera" mode="contained" onPress={() => navigation.navigate('Login')}>
+      <Header />
+      {/* <Button icon="camera" mode="contained" onPress={() => navigation.navigate('Login')}>
         Loggin screen
-      </Button>
+      </Button> */}
     </View>
   )
 }
