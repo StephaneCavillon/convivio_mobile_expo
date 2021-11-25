@@ -5,12 +5,15 @@ import { theme } from '../styles/theming'
 
 export default function GeneralButton(props){
   const { title, onPress } = props;
+  const color = props.color ?? theme.colors.orange
+  const width = props.width ?? '80%'
+
   return(
     <View style={{alignItems:'center'}}>
       <Button
           mode='contained'
-          style={styles.button}
-          color={theme.colors.orange}
+          style={styles.button, {width: width}}
+          color={color}
           labelStyle={{color: theme.colors.pureWhite}}
           onPress={onPress}
         >
@@ -21,16 +24,11 @@ export default function GeneralButton(props){
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.colors.falseBlack,
-    padding: 20,
-  },
   label: {
     color: theme.colors.pureWhite,
   },
   button: {
     borderRadius: 5,
-    width: '75%',
     margin: 2,
     justifyContent:'center'
   },

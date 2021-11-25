@@ -11,7 +11,7 @@ export default function Dashboard({navigation}) {
         Dashboard screen
       </Text>
       <Button icon="camera" mode="contained" onPress={() => navigation.navigate('Login')}>
-        Loggin screen
+        Login screen
       </Button>
     </View>
   )
