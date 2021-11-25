@@ -24,7 +24,7 @@ export default function Home() {
         zIndex: 1, 
         position: 'absolute',
         top: 250,
-        left: 175,
+        left: '44.5%',
         }}
       >
         Agence évènementielle

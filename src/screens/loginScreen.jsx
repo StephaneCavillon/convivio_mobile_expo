@@ -4,8 +4,6 @@ import { API } from '../utils/api'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import TabNavigation from '../navigation/TabNavigation'
-
 export default function LoginScreen () {
   async function sendLoginRequest (credentials) {
     const data = {
@@ -18,7 +16,7 @@ export default function LoginScreen () {
       if (user.status === 200) {
         await registerToken(user)
         await AsyncStorage.setItem('userId', user.data.user._id)
-        // history.push('/') // redirect to home page
+        navigation.navigate('Dashboard') // redirect to DashBoardScreen
       } else {
         console.log(user.statusText) // Status message from server response
       }
@@ -36,7 +34,6 @@ export default function LoginScreen () {
   return (
     <View>
       <LoginForm sendLoginRequest={sendLoginRequest}/>
-      <TabNavigation />
     </View>
   )
 }
