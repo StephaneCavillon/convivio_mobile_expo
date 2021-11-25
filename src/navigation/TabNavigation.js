@@ -2,11 +2,11 @@ import React from 'react';
 import { theme } from '../styles/theming'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { HomeStackNavigator, ChatStackNavigator, OptionStackNavigator } from './StackNavigation'
+import { MainStackNavigator, ChatStackNavigator, OptionStackNavigator } from './StackNavigation'
 
 const Tab = createMaterialBottomTabNavigator()
 
-export default function TabNavigation() {
+export function TabNavigation() {
   return(
     <Tab.Navigator
       initialRouteName='Home'
@@ -32,7 +32,7 @@ export default function TabNavigation() {
       />
       <Tab.Screen
         name="Home"
-        component={HomeStackNavigator}
+        component={MainStackNavigator}
         options={{
           tabBarLabel: 'Accueil',
           tabBarIcon: ({ color }) => (

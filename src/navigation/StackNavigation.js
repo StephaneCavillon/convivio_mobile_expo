@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
+import Home from '../screens/HomeScreen'
 import Dashboard from '../screens/DashboardScreen'
 import LoginScreen from '../screens/LoginScreen'
 import ChatScreen from '../screens/ChatScreen'
@@ -9,20 +10,40 @@ import OptionsScreen from '../screens/OptionsScreen'
 
 const Stack = createStackNavigator()
 
-function HomeStackNavigator() {
-  return(
+function LoginStackNavigator() {
+  return (
     <Stack.Navigator
-      initialRouteName='Login'
+      initialRouteName='Home'
+      screenOptions={{
+        headerShown: false
+      }}
     >
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }
 
+function MainStackNavigator() {
+  return (
+    <Stack.Navigator
+      initialRouteName='Login'
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="Dashboard" component={Dashboard} />
+    </Stack.Navigator>
+  )
+}
+
 function ChatStackNavigator() {
-  return(
-    <Stack.Navigator>
+  return (
+    <Stack.Navigator
+          screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
     </Stack.Navigator>
@@ -31,10 +52,14 @@ function ChatStackNavigator() {
 
 function OptionStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+          screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Options" component={OptionsScreen} />
     </Stack.Navigator>
   )
 }
 
-export { HomeStackNavigator, ChatStackNavigator, OptionStackNavigator }
+export { LoginStackNavigator, MainStackNavigator, ChatStackNavigator, OptionStackNavigator }

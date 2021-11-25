@@ -4,14 +4,15 @@ import { Button } from 'react-native-paper'
 import { theme } from '../styles/theming'
 
 export default function GeneralButton(props){
-  const { title } = props;
+  const { title, onPress } = props;
   return(
-    <View>
+    <View style={{alignItems:'center'}}>
       <Button
           mode='contained'
           style={styles.button}
           color={theme.colors.orange}
           labelStyle={{color: theme.colors.pureWhite}}
+          onPress={onPress}
         >
           {title}
       </Button>
@@ -29,11 +30,9 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    margin: 58,
-    height: 45,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '75%',
+    margin: 2,
+    justifyContent:'center'
   },
   home: {
     top: 350,

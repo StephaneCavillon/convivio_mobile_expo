@@ -57,7 +57,7 @@ export default function LoginForm (props) {
         onPress={handleSubmit}
         title="Valider"
       >
-          Valider
+        Valider
       </Button>
     </View>
     )}
@@ -67,7 +67,6 @@ export default function LoginForm (props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.falseBlack,
     padding: 20
   },
   label: {
