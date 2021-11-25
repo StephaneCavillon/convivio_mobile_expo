@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { View, StatusBar, Image, StyleSheet } from 'react-native'
+import { Text, View, StatusBar, Image, StyleSheet } from 'react-native'
 import { API } from '../utils/api'
+import { theme } from '../styles/theming'
 import Context from '../utils/context/Context'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -36,46 +37,55 @@ export default function LoginScreen () {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
         <StatusBar
         animated={true}
         translucent
         backgroundColor={"transparent"}
       />
-      {/* <Image
-        source={require('../assets/img/ConvivioBlanc.png')}
-        style={styles.logo}
-        resizeMode='contain'
-      >
-      </Image> */}
-      <LoginForm sendLoginRequest={sendLoginRequest}/>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../assets/img/ConvivioBlanc.png')}
+          style={styles.logo}
+          resizeMode='contain'
+        />
+        <Text style={{
+          alignSelf: 'flex-end',
+          color: theme.colors.pureWhite,
+          fontSize: 15,
+          right: '15%',
+          top: -15
+          }}
+        >
+          Agence évènementielle
+        </Text>
+      </View>
+      <View style={{justifyContent:'center', marginTop:'15%'}}>
+        <Text >Se connecter </Text>
+        <LoginForm sendLoginRequest={sendLoginRequest}/>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
+    backgroundColor: theme.colors.falseBlack,
+    height: '100%',
+    paddingTop: '10%'
   },
-
-  coverImage: {
-    width: '100%',
-    height: 850,
+  imageContainer: {
+    alignItems: 'center'
   },
-
-  darkness: {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    width: '100%',
-    height: 850,
+  text: {
+    color: theme.colors.pureWhite,
+    fontSize:25,
+    fontWeight: 'bold',
+    alignSelf: 'center'
   },
-
   logo: {
     width: '70%',
     justifyContent: 'center',
-    zIndex: 1,
-    position: 'absolute',
-    top: 150,
+    marginBottom:0
   },
 })
