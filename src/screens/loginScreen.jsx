@@ -36,7 +36,6 @@ export default function LoginScreen ({ navigation }) {
   return (
     <View>
       <LoginForm sendLoginRequest={sendLoginRequest}/>
-      <TabNavigation />
     </View>
   )
 }

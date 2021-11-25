@@ -9,7 +9,6 @@ export default function App() {
 
   async function auth() {
     const connected = await AsyncStorage.getItem('connected')
-    console.log('connected', connected)
     if (connected) {
       setConnected(connected)
     }
