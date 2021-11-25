@@ -1,3 +1,6 @@
+import { CurrentRenderContext } from '@react-navigation/native'
+import logo from '../assets/img/ConvivioBlanc.png'
+
 export const theme = {
   colors: {
     orange: '#F25835',
@@ -14,7 +17,6 @@ export const theme = {
     background: '#F8F8F8',
     placeholder:'#FFFFFF',
     disabled: '#6E6E6E',
-
   },
 
   roundness: 4, // Degré de rondeur des éléments type boutons

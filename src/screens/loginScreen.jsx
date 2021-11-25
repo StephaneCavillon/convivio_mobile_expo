@@ -17,6 +17,7 @@ export default function LoginScreen ({ navigation }) {
       if (user.status === 200) {
         await registerToken(user)
         await AsyncStorage.setItem('userId', user.data.user._id)
+        await AsyncStorage.setItem('connected', true)
         navigation.navigate('Dashboard') // redirect to DashBoardScreen
       } else {
         console.log(user.statusText) // Status message from server response
@@ -35,6 +36,7 @@ export default function LoginScreen ({ navigation }) {
   return (
     <View>
       <LoginForm sendLoginRequest={sendLoginRequest}/>
+      <TabNavigation />
     </View>
   )
 }
