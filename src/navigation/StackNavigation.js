@@ -12,7 +12,12 @@ const Stack = createStackNavigator()
 
 function LoginStackNavigator() {
   return (
-    <Stack.Navigator initialRouteName='Home'>
+    <Stack.Navigator
+      initialRouteName='Home'
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
@@ -21,7 +26,12 @@ function LoginStackNavigator() {
 
 function MainStackNavigator() {
   return (
-    <Stack.Navigator initialRouteName='Login'>
+    <Stack.Navigator
+      initialRouteName='Login'
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
   )
@@ -29,7 +39,11 @@ function MainStackNavigator() {
 
 function ChatStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+          screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
     </Stack.Navigator>
@@ -38,7 +52,11 @@ function ChatStackNavigator() {
 
 function OptionStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+          screenOptions={{
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Options" component={OptionsScreen} />
     </Stack.Navigator>
   )

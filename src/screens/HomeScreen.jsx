@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Image, ImageBackground, StyleSheet, Text } from 'react-native';
+import { View, Image, ImageBackground, StyleSheet, Text, StatusBar } from 'react-native';
 import { theme } from '../styles/theming';
 
 
 export default function Home() {
   return(
     <View>
+      <StatusBar
+        animated={true}
+        hidden
+      />
       <View style={styles.container}>
         <ImageBackground
           source={require('../assets/img/background-home.jpg')}

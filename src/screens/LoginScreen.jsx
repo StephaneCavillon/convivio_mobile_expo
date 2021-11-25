@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import { API } from '../utils/api'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -35,6 +35,11 @@ export default function LoginScreen ({ navigation }) {
 
   return (
     <View>
+        <StatusBar
+        animated={true}
+        translucent
+        backgroundColor={"transparent"}
+      />
       <LoginForm sendLoginRequest={sendLoginRequest}/>
     </View>
   )
