@@ -50,7 +50,7 @@ export default function Home({ navigation }) {
           Agence évènementielle
         </Text>
       </View>
-      <View style={{top: 285}}>
+      <View style={{top: 350}}>
         <Button title="Let's go !" onPress={ () => navigation.navigate('Login') }/>
       </View>
     </View>
