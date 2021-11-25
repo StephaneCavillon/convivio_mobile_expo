@@ -53,6 +53,7 @@ export default function Home({ navigation }) {
       <View style={{top: 340}}>
         <Button 
           title="Let's go !"
+          onPress={() => navigation.navigate('Login')}
         />
       </View>
     </View>

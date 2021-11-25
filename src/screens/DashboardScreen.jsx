@@ -10,9 +10,6 @@ export default function Dashboard({navigation}) {
     <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
       <Header />
-      {/* <Button icon="camera" mode="contained" onPress={() => navigation.navigate('Login')}>
-        Loggin screen
-      </Button> */}
     </View>
   )
 }
