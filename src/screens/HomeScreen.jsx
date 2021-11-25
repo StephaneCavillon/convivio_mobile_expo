@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image, ImageBackground, StyleSheet, Text, StatusBar } from 'react-native';
 import { theme } from '../styles/theming';
+import Button from '../components/Button'
 
 
 export default function Home() {
@@ -25,13 +26,13 @@ export default function Home() {
         </Image>
         <Text style={{
           color: theme.colors.pureWhite,
-          fontSize: 22,
+          fontSize: 23,
           fontWeight: '600',
           textAlign: 'center',
           zIndex: 1,
           position: 'absolute',
-          padding: 60,
-          top: 280
+          padding: 50,
+          top: 330
           }}
         >
           Organisons votre évènement ensemble
@@ -48,6 +49,9 @@ export default function Home() {
         >
           Agence évènementielle
         </Text>
+      </View>
+      <View style={{top: 285}}>
+        <Button title="Let's go !"/>
       </View>
     </View>
   )
