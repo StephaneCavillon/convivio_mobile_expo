@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { NavigationContainer } from '@react-navigation/native'
 import { LoginStackNavigator } from './src/navigation/StackNavigation'
@@ -22,8 +21,6 @@ export default function App() {
   useEffect(() => auth(), [isLogged])
 
   return (
-    <View>
-      <Home />
       <Context.Provider value={ [ isLogged, setIsLogged ] }>
         <NavigationContainer>
           { !isLogged ?
@@ -32,7 +29,5 @@ export default function App() {
           }
         </NavigationContainer>
       </Context.Provider>
-    </View>
   );
-
 }
