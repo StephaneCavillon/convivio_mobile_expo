@@ -5,14 +5,15 @@ import { Button } from 'react-native-paper';
 import { theme } from '../styles/theming';
 import { API } from '../utils/api';
 
-export default function Dashboard({navigation}) {
-  const userId = AsyncStorage.getItem('userId').then(d => d),
-  const accessToken = AsyncStorage.getItem('accessToken').then(d => d),
-  const config = {
-    headers:{'Authorization': `Bearer ${accessToken}`}
-  },
+export default async function Dashboard({navigation}) {
+  const userId = await AsyncStorage.getItem('userId')
+  const accessToken = await AsyncStorage.getItem('accessToken')
+  // const config = {
+  //   headers:{'Authorization': `Bearer ${accessToken}`}
+  // }
   const user = await API.get(`/getUser/${userId}`, config)
-
+  
+  console.log(user)
   return(
     <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
