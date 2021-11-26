@@ -4,7 +4,10 @@ import { StatusBar, Text, View, Image } from 'react-native'
 import { Button } from 'react-native-paper'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
+
+// Composants
 import Header from '../components/Header'
+import Tiles from '../components/Tiles'
 
 export default function Dashboard({navigation}) {
   const [user, setUser ] = useState({})
@@ -36,6 +39,18 @@ export default function Dashboard({navigation}) {
     <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
       <Header user={ user } />
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginLeft: '6%',
+        marginRight: '6%',
+      }}>
+        <Tiles icon='creation'/>
+        <Tiles icon='calendar-blanks'/>
+        <Tiles icon='file-document-outline'/>
+        <Tiles icon='chart-bar'/>
+      </View>
     </View>
   )
 }

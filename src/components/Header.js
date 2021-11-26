@@ -32,7 +32,7 @@ export default function Header(props) {
         >
         <Text style={{
           color: theme.colors.pureWhite,
-          fontSize: 25,
+          fontSize: 23,
           fontWeight: 'bold',
         }}>
           Bonjour {user.firstname}
