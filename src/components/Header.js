@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native';
-
 import { theme } from '../styles/theming';
 
-export default function Header() {
+export default function Header(props) {
+const { user } = props;
   return(
     <View>
       <Image 
@@ -34,7 +34,7 @@ export default function Header() {
           fontSize: 25,
           fontWeight: 'bold',
         }}>
-          Bonjour Justine
+          Bonjour {user.firstname}
         </Text>
       </View>
     </View>
