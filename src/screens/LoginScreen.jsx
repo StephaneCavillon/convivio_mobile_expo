@@ -5,7 +5,6 @@ import { theme } from '../styles/theming'
 import Context from '../utils/context/Context'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { API_URL } from '@env'
 
 
 export default function LoginScreen () {
