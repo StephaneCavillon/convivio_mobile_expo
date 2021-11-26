@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Text, View, Image } from 'react-native';
 import { theme } from '../styles/theming';
 
 export default function Header(props) {
-const { user } = props;
+  const { user } = props
+
   return(
     <View>
-      <Image 
+      <Image
         source={require('../assets/img/dashboard.jpg')}
         resizeMode='cover'
         style={{
@@ -18,7 +19,7 @@ const { user } = props;
       >
       </Image>
       <View style={{
-        backgroundColor: theme.colors.backdrop, 
+        backgroundColor: theme.colors.backdrop,
         height: '12%',
         marginLeft: 30,
         marginRight: 30,

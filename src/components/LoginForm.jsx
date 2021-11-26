@@ -31,6 +31,7 @@ export default function LoginForm (props) {
       <Text style={styles.label}>Mot de passe</Text>
       <TextInput
         mode='outlined'
+        secureTextEntry={true}
         selectionColor={theme.colors.orange}
         activeOutlineColor={theme.colors.orange}
         onChangeText={handleChange('password')}
@@ -73,6 +74,6 @@ const styles = StyleSheet.create({
     color: theme.colors.pureWhite,
   },
   button: {
-   borderRadius: 5
+    borderRadius: 5
   }
 })

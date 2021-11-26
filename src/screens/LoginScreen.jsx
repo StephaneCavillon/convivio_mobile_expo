@@ -5,6 +5,8 @@ import { theme } from '../styles/theming'
 import Context from '../utils/context/Context'
 import LoginForm  from '../components/LoginForm'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { API_URL } from '@env'
+
 
 export default function LoginScreen () {
   const [ isLogged, setIsLogged ] = useContext(Context)
@@ -33,7 +35,7 @@ export default function LoginScreen () {
 
   async function registerToken(user) {
     // registering of refreshToken in localstorage
-    await AsyncStorage.setItem('accessToken', JSON.stringify(user.data.accessToken))
+    await AsyncStorage.setItem('accessToken', user.data.accessToken)
   }
 
   return (
@@ -61,7 +63,7 @@ export default function LoginScreen () {
         </Text>
       </View>
       <View style={{justifyContent:'center', marginTop:'15%'}}>
-        <Text >Se connecter </Text>
+        <Text style={styles.text} >Se connecter </Text>
         <LoginForm sendLoginRequest={sendLoginRequest}/>
       </View>
     </View>
