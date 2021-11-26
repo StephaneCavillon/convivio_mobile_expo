@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Text, View, StatusBar, Image, StyleSheet } from 'react-native'
 import { API } from '../utils/api'
 import { theme } from '../styles/theming'
@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function LoginScreen () {
   const [ isLogged, setIsLogged ] = useContext(Context)
+  const [ errorMessage, setErrorMessage ] = useState(false)
 
   async function sendLoginRequest (credentials) {
     const data = {
@@ -27,8 +28,8 @@ export default function LoginScreen () {
         console.log(user.statusText) // Status message from server response
       }
     } catch (error) {
-      // handle error with user not found sign up ?
-      console.log('error', error.message)
+      console.log('error', error.response.data)
+      setErrorMessage(error.response.data)
     }
   }
 
@@ -63,6 +64,10 @@ export default function LoginScreen () {
       </View>
       <View style={{justifyContent:'center', marginTop:'15%'}}>
         <Text style={styles.text} >Se connecter </Text>
+        { errorMessage ?
+          <Text style={styles.error}>{errorMessage}</Text> :
+          null
+        }
         <LoginForm sendLoginRequest={sendLoginRequest}/>
       </View>
     </View>
@@ -83,6 +88,11 @@ const styles = StyleSheet.create({
     fontSize:25,
     fontWeight: 'bold',
     alignSelf: 'center'
+  },
+  error: {
+    color:'red',
+    alignSelf:'center',
+    marginTop: 10
   },
   logo: {
     width: '70%',
