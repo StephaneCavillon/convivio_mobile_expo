@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Text, View, StatusBar, Image, StyleSheet } from 'react-native'
 import { API } from '../utils/api'
 import { theme } from '../styles/theming'
@@ -37,6 +37,10 @@ export default function LoginScreen () {
     // registering of refreshToken in localstorage
     await AsyncStorage.setItem('accessToken', user.data.accessToken)
   }
+
+  useEffect(() => {
+    setIsLogged(false)
+  },[])
 
   return (
     <View style={styles.container}>

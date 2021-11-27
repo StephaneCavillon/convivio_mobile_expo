@@ -27,12 +27,14 @@ function LoginStackNavigator() {
 function MainStackNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName='Login'
+      initialRouteName='Dashboard'
       screenOptions={{
         headerShown: false
       }}
     >
       <Stack.Screen name="Dashboard" component={Dashboard} />
+
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }
@@ -46,6 +48,8 @@ function ChatStackNavigator() {
     >
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
+
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }
@@ -58,6 +62,8 @@ function OptionStackNavigator() {
       }}
     >
       <Stack.Screen name="Options" component={OptionsScreen} />
+
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }

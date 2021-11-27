@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { NavigationContainer } from '@react-navigation/native'
+import { navigationRef } from './src/navigation/RootNavigation'
 import { LoginStackNavigator } from './src/navigation/StackNavigation'
 import { TabNavigation } from './src/navigation/TabNavigation'
 import Context from './src/utils/context/Context'
-
-import Home from './src/screens/HomeScreen'
-import Dashboard from './src/screens/DashboardScreen'
 
 export default function App() {
   const [ isLogged, setIsLogged ] = useState(false)
@@ -15,6 +13,8 @@ export default function App() {
     const isLogged = await AsyncStorage.getItem('isLogged')
     if (isLogged) {
       setIsLogged(true)
+    } else{
+      setIsLogged(false)
     }
   }
 
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
       <Context.Provider value={ [ isLogged, setIsLogged ] }>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           { !isLogged ?
             <LoginStackNavigator/> :
             <TabNavigation />
