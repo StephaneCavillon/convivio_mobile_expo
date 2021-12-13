@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { StatusBar, View } from 'react-native'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
@@ -7,6 +7,7 @@ import { API } from '../utils/api'
 // Composants
 import Header from '../components/Header'
 import Tiles from '../components/Tiles'
+import Button from '../components/Button'
 
 export default function Dashboard({navigation}) {
   const [user, setUser ] = useState({})
@@ -38,10 +39,11 @@ export default function Dashboard({navigation}) {
         marginRight: '6%',
       }}>
         <Tiles icon='creation'/>
-        <Tiles icon='calendar-blanks'/>
+        <Tiles icon='calendar' onPress = { () => {navigation.navigate('Calendar') }}/>
         <Tiles icon='file-document-outline'/>
         <Tiles icon='chart-bar'/>
       </View>
+      <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
     </View>
   )
 }

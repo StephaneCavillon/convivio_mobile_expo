@@ -6,15 +6,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 
 export default function Tiles(props) {
-  const { icon } = props;
-  let iconName;
-  switch(icon){
-    case 'creation':
-      iconName='creation'
-  }
+  const { icon, onPress } = props;
   return(
     <View>
-      <Button 
+      <Button
         style={{
           backgroundColor: theme.colors.surface,
           width: '30%',
@@ -23,11 +18,11 @@ export default function Tiles(props) {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        mode="contained" 
-        onPress={() => console.log('Pressed')}>
+        mode="contained"
+        onPress={onPress}>
           <Text>
-            <MaterialCommunityIcons 
-              name={iconName}
+            <MaterialCommunityIcons
+              name={icon}
               color={theme.colors.orange}
               size={30}
             />

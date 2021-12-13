@@ -3,7 +3,6 @@ import * as RootNavigation from '../navigation/RootNavigation'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { API_URL } from '@env'
 
-console.log(API_URL)
 export const API = axios.create({
   baseURL: API_URL
 })

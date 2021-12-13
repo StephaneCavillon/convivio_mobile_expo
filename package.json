@@ -27,6 +27,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-calendars": "^1.1272.0",
     "react-native-dotenv": "^3.3.0",
     "react-native-fontext": "^0.1.8",
     "react-native-gesture-handler": "^1.10.3",

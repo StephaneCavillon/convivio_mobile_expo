@@ -6,6 +6,7 @@ import Dashboard from '../screens/DashboardScreen'
 import LoginScreen from '../screens/LoginScreen'
 import ChatScreen from '../screens/ChatScreen'
 import ContactScreen from '../screens/ContactScreen'
+import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
 
 const Stack = createStackNavigator()
@@ -33,6 +34,7 @@ function MainStackNavigator() {
       }}
     >
       <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="Calendar" component={CalendarScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
