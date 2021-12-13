@@ -4,6 +4,7 @@ import { StatusBar, View } from 'react-native'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
 import Header from '../components/Header'
+import Button from '../components/Button'
 
 export default function Dashboard({navigation}) {
   const [user, setUser ] = useState({})
@@ -27,6 +28,7 @@ export default function Dashboard({navigation}) {
     <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
       <Header user={ user } />
+      <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
     </View>
   )
 }

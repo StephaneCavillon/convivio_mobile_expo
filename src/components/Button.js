@@ -7,6 +7,8 @@ export default function GeneralButton(props){
   const { title, onPress } = props;
   const color = props.color ?? theme.colors.orange
   const width = props.width ?? '80%'
+  const uppercase = props.uppercase ?? 'false'
+  const textColor = props.textColor ?? theme.colors.pureWhite
 
   return(
     <View style={{alignItems:'center'}}>
@@ -14,7 +16,8 @@ export default function GeneralButton(props){
           mode='contained'
           style={styles.button, {width: width}}
           color={color}
-          labelStyle={{color: theme.colors.pureWhite}}
+          labelStyle={{color: textColor}}
+          uppercase={uppercase}
           onPress={onPress}
         >
           {title}

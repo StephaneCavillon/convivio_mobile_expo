@@ -33,7 +33,7 @@ function MainStackNavigator() {
       }}
     >
       <Stack.Screen name="Dashboard" component={Dashboard} />
-
+      <Stack.Screen name="Contact" component={ContactScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
