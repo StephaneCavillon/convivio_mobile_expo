@@ -1,8 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { StatusBar, View } from 'react-native'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
+import Context from '../utils/context/Context'
 
 // Composants
 import Header from '../components/Header'
@@ -11,9 +12,10 @@ import Button from '../components/Button'
 
 export default function Dashboard({navigation}) {
   const [user, setUser ] = useState({})
-  const getUserId = async () => {
-    return await AsyncStorage.getItem('userId')
-  }
+  const { getUserId } = useContext(Context)
+  // const getUserId = async () => {
+  //   return await AsyncStorage.getItem('userId')
+  // }
   const getUser = async () => {
     try{
       const user = await API.get(`/getUser/${ await getUserId()}`)

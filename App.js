@@ -9,6 +9,11 @@ import Context from './src/utils/context/Context'
 export default function App() {
   const [ isLogged, setIsLogged ] = useState(false)
 
+  const getUserId = async () => {
+    return await AsyncStorage.getItem('userId')
+  }
+
+
   async function auth() {
     const isLogged = await AsyncStorage.getItem('isLogged')
     if (isLogged) {
@@ -21,7 +26,7 @@ export default function App() {
   useEffect(() => auth(), [isLogged])
 
   return (
-      <Context.Provider value={ [ isLogged, setIsLogged ] }>
+      <Context.Provider value={{  isLogged, setIsLogged , getUserId }}>
         <NavigationContainer ref={navigationRef}>
           { !isLogged ?
             <LoginStackNavigator/> :

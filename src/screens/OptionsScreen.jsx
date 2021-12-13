@@ -6,7 +6,7 @@ import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Options() {
-  const [ isLogged, setIsLogged ] = useContext(Context)
+  const { isLogged, setIsLogged } = useContext(Context)
   const [ modalVisibility, setModalVisibility ] = useState(false)
 
   async function logout() {

@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 export default function LoginScreen () {
-  const [ isLogged, setIsLogged ] = useContext(Context)
+  const { isLogged, setIsLogged } = useContext(Context)
   const [ errorMessage, setErrorMessage ] = useState(false)
 
   async function sendLoginRequest (credentials) {
