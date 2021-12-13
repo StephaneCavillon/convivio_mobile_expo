@@ -3,8 +3,10 @@ import React, {useEffect, useState} from 'react'
 import { StatusBar, View } from 'react-native'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
+
+// Composants
 import Header from '../components/Header'
-import Button from '../components/Button'
+import Tiles from '../components/Tiles'
 
 export default function Dashboard({navigation}) {
   const [user, setUser ] = useState({})
@@ -28,7 +30,18 @@ export default function Dashboard({navigation}) {
     <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
       <StatusBar style="auto" />
       <Header user={ user } />
-      <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginLeft: '6%',
+        marginRight: '6%',
+      }}>
+        <Tiles icon='creation'/>
+        <Tiles icon='calendar-blanks'/>
+        <Tiles icon='file-document-outline'/>
+        <Tiles icon='chart-bar'/>
+      </View>
     </View>
   )
 }

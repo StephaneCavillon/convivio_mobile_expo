@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
     color: theme.colors.pureWhite,
   },
   button: {
-   borderRadius: 5
+    borderRadius: 5
   }
 })
