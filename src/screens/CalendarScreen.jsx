@@ -1,18 +1,25 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import { Calendar, Agenda } from 'react-native-calendars'
+import { Agenda } from 'react-native-calendars'
+import {LocaleConfig} from 'react-native-calendars'
 
+LocaleConfig.locales['fr'] = {
+  monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+  monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+  dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+  dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+  today: 'Aujourd\'hui'
+}
+LocaleConfig.defaultLocale = 'fr'
 
 export default function CalendarScreen() {
+  // get EventList for the connected user
+  // format event to fit calendar events format
 
   const event = []
 
   return (
-    <Agenda/>
-    // <View>
-    //   <Text>Calendar Screens</Text>
-    //   <Calendar/>
-    //   {/* <Agenda items = {{'2021-12-13': []}}/> */}
-    // </View>
+    <Agenda
+      firstDay={1}
+    />
   )
 }
