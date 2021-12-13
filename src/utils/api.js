@@ -3,9 +3,9 @@ import * as RootNavigation from '../navigation/RootNavigation'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { API_URL } from '@env'
 
-
+console.log(API_URL)
 export const API = axios.create({
-  baseURL: API_URL //'http://9ba6-176-162-49-41.ngrok.io'
+  baseURL: API_URL
 })
 
 // @todo interceptor pour la requete et pour la response
@@ -35,6 +35,8 @@ API.interceptors.response.use( function (response) {
       await AsyncStorage.removeItem('isLogged')
 
       RootNavigation.navigate('Login') // redirect to login page
+    } else {
+      return error.response
     }
   }
 })

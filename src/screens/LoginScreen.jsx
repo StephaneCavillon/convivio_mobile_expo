@@ -19,16 +19,17 @@ export default function LoginScreen () {
     }
     try {
       const user = await API.post('/api/login', data)
-      if (user.status === 200) {
+      if (user && user.status === 200) {
         await registerToken(user)
         await AsyncStorage.setItem('userId', user.data.user._id)
         await AsyncStorage.setItem('isLogged', 'true')
         setIsLogged(true)
       } else {
-        console.log(user.statusText) // Status message from server response
+        console.log('login error', user) // Status message from server response
+        setErrorMessage(user.data)
       }
     } catch (error) {
-      console.log('error', error.response.data)
+      console.log('error', error.data)
       setErrorMessage(error.response.data)
     }
   }
