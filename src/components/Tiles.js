@@ -12,8 +12,8 @@ export default function Tiles(props) {
       <Button
         style={{
           backgroundColor: theme.colors.surface,
-          width: '30%',
-          height: '30%',
+          width: '100%',
+          flex: 2,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',

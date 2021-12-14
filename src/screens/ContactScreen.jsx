@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, Linking } from 'react-native'
+import { StyleSheet, View, Text, Image, Linking } from 'react-native'
 import { Title } from 'react-native-paper'
 import  Btn from '../components/Button'
 import { theme } from '../styles/theming'
@@ -25,7 +25,7 @@ export default function Chat() {
           </Text>
           <Text style={ {
             paddingTop: 10
-          }}>Pour nous contacter, il suffit de nous enboyuer un billet doux via cette application. Mais cela est également possible via :
+          }}>Pour nous contacter, il suffit de nous envoyer un billet doux via cette application. Mais cela est également possible via :
           </Text>
         </View>
         <View style={ {
@@ -38,7 +38,7 @@ export default function Chat() {
           paddingTop:20
         }}>
           <Title style={{ paddingBottom:10 }}>Par téléphone</Title>
-          <Btn title='03. 22. 22. 22. 22' onPress={ () => Linking.openURL('tel:0322222222') } />
+          <Btn title='03.22.22.22.22' onPress={ () => Linking.openURL('tel:0322222222') } />
         </View>
         <View style={ {
           paddingTop:40
@@ -57,9 +57,18 @@ export default function Chat() {
       <Image style={{
           width: '100%',
           height: '30%',
-          top: 10
+          top: 10,
         }}
         source={require('../assets/img/team_dessin_grey.png')}/>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  }
+})

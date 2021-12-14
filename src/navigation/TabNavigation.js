@@ -21,8 +21,8 @@ export function TabNavigation() {
         component={ChatStackNavigator}
         options={{
           tabBarLabel: 'Messages',
-          tabBarBadge: 1, // à modifier selon les notifs entrantes
-          tabBarBadgeStyle: { // stylisation du badge à revoir, n'est pas pris en compte **
+          tabBarBadge: 1,
+          tabBarBadgeStyle: {
             backgroundColor: theme.colors.orange
           },
           tabBarIcon: ({ color }) => (

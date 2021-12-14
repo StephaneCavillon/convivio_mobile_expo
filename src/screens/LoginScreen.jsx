@@ -71,7 +71,7 @@ export default function LoginScreen () {
         </Text>
       </View>
       <View style={{justifyContent:'center', marginTop:'15%'}}>
-        <Text style={styles.text} >Se connecter </Text>
+        <Text style={styles.text}>Se connecter </Text>
         { errorMessage ?
           <Text style={styles.error}>{errorMessage}</Text> :
           null

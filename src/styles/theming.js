@@ -8,13 +8,13 @@ export const theme = {
     pureBlack: '#000000',
     beige: '#F2EDE4',
     pureWhite: '#FFFFFF',
-    falseWhite: "#F8F8F8",
+    falseWhite: "#F3F4F6",
 
     text: '#222222',
     accent: '#F25835',
     surface: '#FFFFFF', // Couleur de background pour les éléments type cartes
     backdrop: '#222222', // Couleur de background pour modales
-    background: '#F8F8F8',
+    background: '#F3F4F6',
     placeholder:'#FFFFFF',
     disabled: '#6E6E6E',
   },

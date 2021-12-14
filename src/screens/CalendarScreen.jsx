@@ -27,8 +27,7 @@ export default function CalendarScreen() {
         API.get(`/getAllEventsFromCustomer/${ storedUser.id }`)
           .then((response => setEvents(response.data)))
       }
-      //@todo format event to fit calendar events format
-
+      
     }catch (err) {
       console.log('error', err.response.request._response)
     }

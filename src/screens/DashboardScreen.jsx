@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StatusBar, View } from 'react-native'
+import { StyleSheet, StatusBar, View, Text } from 'react-native'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
 import Context from '../utils/context/Context'
@@ -27,22 +27,54 @@ export default function Dashboard({navigation}) {
   }, [])
 
   return(
-    <View style={{backgroundColor: theme.colors.background, height: '100%'}}>
+    <View style={styles.container}>
       <StatusBar style="auto" />
       <Header user={ user } />
       <View style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        marginLeft: '6%',
-        marginRight: '6%',
-      }}>
-        <Tiles icon='creation'/>
-        <Tiles icon='calendar' onPress = { () => {navigation.navigate('Calendar') }}/>
-        <Tiles icon='file-document-outline'/>
-        <Tiles icon='chart-bar'/>
+        flex: 4,
+        marginHorizontal: 30,
+        }}>
+        <View style={styles.tiles}>
+          <Tiles icon='creation'/>
+          <Tiles icon='calendar' onPress = { () => {navigation.navigate('Calendar') }}/>
+          <Tiles icon='file-document-outline'/>
+          <Tiles icon='chart-bar'/>
+        </View>
+        <View style={{
+          flex: 3,
+        }}>
+          <Text style={styles.title}>Évènement(s) en cours</Text>
+        </View>
+        <View style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
+          <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
+        </View>
       </View>
-      <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
-art    </View>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.colors.background,
+    flex: 1,
+  },
+  
+  tiles: {
+    flex: 0.65,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: '10%',
+  },
+
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  }
+})
