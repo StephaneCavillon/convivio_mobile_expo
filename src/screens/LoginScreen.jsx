@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 export default function LoginScreen () {
-  const [ isLogged, setIsLogged ] = useContext(Context)
+  const { isLogged, setIsLogged } = useContext(Context)
   const [ errorMessage, setErrorMessage ] = useState(false)
 
   async function sendLoginRequest (credentials) {
@@ -21,7 +21,10 @@ export default function LoginScreen () {
       const user = await API.post('/api/login', data)
       if (user && user.status === 200) {
         await registerToken(user)
-        await AsyncStorage.setItem('userId', user.data.user._id)
+        await AsyncStorage.setItem('user', JSON.stringify({
+          id: user.data.user._id,
+          role: user.data.user.role
+        }))
         await AsyncStorage.setItem('isLogged', 'true')
         setIsLogged(true)
       } else {

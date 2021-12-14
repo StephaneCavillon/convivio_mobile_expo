@@ -22,7 +22,7 @@ export default function LoginForm (props) {
   <Formik
     validationSchema={ loginValidationSchema }
     initialValues= {{
-      pseudo: 'jfernandez',
+      pseudo: 'hpatakis',
       password: 'azerty',
     }}
     onSubmit={ values => sendLoginRequest({...values, remember:remember})}
