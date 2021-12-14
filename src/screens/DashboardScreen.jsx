@@ -44,6 +44,6 @@ export default function Dashboard({navigation}) {
         <Tiles icon='chart-bar'/>
       </View>
       <Button title="Besoin d'aide ?" onPress = { () => navigation.navigate('Contact') } />
-    </View>
+art    </View>
   )
 }

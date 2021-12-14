@@ -3,8 +3,10 @@ import { Text } from 'react-native';
 
 export default function Chat() {
   return(
-    <Text>
-      ChatScreen
-    </Text>
+    <View>
+      <Text>
+        ChatScreen
+      </Text>
+    </View>
   )
 }
