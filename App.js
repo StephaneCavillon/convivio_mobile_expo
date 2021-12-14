@@ -10,9 +10,8 @@ export default function App() {
   const [ isLogged, setIsLogged ] = useState(false)
 
   const getUserId = async () => {
-    return await AsyncStorage.getItem('userId')
+    return JSON.parse(await AsyncStorage.getItem('user'))
   }
-
 
   async function auth() {
     const isLogged = await AsyncStorage.getItem('isLogged')

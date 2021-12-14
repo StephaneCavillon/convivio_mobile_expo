@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react'
-import { Agenda } from 'react-native-calendars'
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 import { LocaleConfig } from 'react-native-calendars'
 import Context from '../utils/context/Context'
 import { API } from '../utils/api'
@@ -19,14 +19,20 @@ export default function CalendarScreen() {
   // get EventList for the connected user
   const getEvents = async () => {
     try{
-      const eventList = await API.get(`/getAllEventsFromCustomer/${ await getUserId() }`)
-      setEvents(await eventList.data)
+      const storedUser = await getUserId()
+      if(storedUser.role === 'staff'){
+        API.get(`/getAllEvents`)
+          .then((response => setEvents(response.data)))
+      } else {
+        API.get(`/getAllEventsFromCustomer/${ storedUser.id }`)
+          .then((response => setEvents(response.data)))
+      }
       //@todo format event to fit calendar events format
+
     }catch (err) {
       console.log('error', err.response.request._response)
     }
   }
-
   useEffect(() => {
     getEvents()
   }, [])
