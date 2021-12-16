@@ -15,8 +15,8 @@ export default function Dashboard({navigation}) {
   const getUser = async () => {
     try{
       const storedUser = await getUserId()
-      const user = await API.get(`/getUser/${ storedUser.id }`)
-      setUser(await user.data)
+      API.get(`/getUser/${ storedUser.id }`)
+        .then(res => setUser( res.data))
     }catch (err) {
       console.log('error', err.response.request._response)
     }
@@ -29,7 +29,7 @@ export default function Dashboard({navigation}) {
   return(
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Header user={ user } />
+      { user ? <Header user={ user } /> : null }
       <View style={{
         flex: 4,
         marginHorizontal: 30,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
     flex: 1,
   },
-  
+
   tiles: {
     flex: 0.65,
     flexDirection: 'row',
