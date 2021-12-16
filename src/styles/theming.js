@@ -21,21 +21,6 @@ export const theme = {
 
   roundness: 4, // Degré de rondeur des éléments type boutons
 
-  // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
-}
-
-export const styles = StyleSheet.create({ // Style background image (utilisé sur le home par ex)
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
-  coverImage: {
-    width: '100%',
-    height: 850,
-  },
-
   darkness: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     width: '100%',
@@ -48,4 +33,26 @@ export const styles = StyleSheet.create({ // Style background image (utilisé su
     position: 'absolute',
     top: 150,
   },
-})
+
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  coverImage: {
+    width: '100%',
+    height: 850,
+  },
+
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginBottom: 10,
+  },
+
+  // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
+}

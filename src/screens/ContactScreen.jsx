@@ -6,14 +6,10 @@ import { theme } from '../styles/theming'
 
 export default function Chat() {
   return(
-    <View>
-      <View style={{
-        paddingHorizontal:20,
-      }}>
-        <View style={ {
-          paddingTop: 20,
-        }}>
-          <Title style={styles.title}>
+    <View style={theme.colors.background}>
+      <View style={{marginHorizontal: 20, marginVertical: 20}}>
+        <View>
+          <Title style={theme.title}>
             Nous contacter
           </Title>
           <Text style={styles.paragraph}>
@@ -57,15 +53,6 @@ export default function Chat() {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    textAlign: 'center',
-    fontWeight: '500',
-    fontSize: 25,
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    marginBottom: 10,
-  },
-
   paragraph: {
     paddingTop: 10,
     fontSize: 15,

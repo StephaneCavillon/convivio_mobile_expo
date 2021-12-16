@@ -4,8 +4,9 @@ import { View, Text } from 'react-native'
 import { LogoutModal } from '../components/LogoutModal'
 import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { theme } from '../styles/theming'
 
-export default function Options() {
+export default function Options({navigation}) {
   const { isLogged, setIsLogged } = useContext(Context)
   const [ modalVisibility, setModalVisibility ] = useState(false)
 
@@ -15,16 +16,17 @@ export default function Options() {
   }
 
   return(
-    <View>
-      <Text>
-        OptionsScreen
+    <View style={{marginHorizontal: 20, marginVertical: 20}}>
+      <Text style={theme.title}>
+        Options
       </Text>
+      <Button title="Accès au profil utilisateur" onPress={ () => {navigation.navigate('Profile') }} />
       <LogoutModal
         modalVisibility={modalVisibility}
         setModalVisibility={setModalVisibility}
         logout={logout}
       />
-      <Button title="Deconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
+      <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
     </View>
   )
 }
