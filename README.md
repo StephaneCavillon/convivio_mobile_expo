@@ -11,3 +11,7 @@ value: path\to\Android\Sdk
 ajouter la variable suivante au Path:
 path\to\Android\Sdk\platform-tools
 
+build the application:
+  check that you run npm max npm 7.24.2
+  *expo build:android
+
