@@ -24,8 +24,8 @@ export default function Header(props) {
         <View style={{
         backgroundColor: theme.colors.backdrop,
         flex: 1,
-        marginLeft: 30,
-        marginRight: 30,
+        marginLeft: 29,
+        marginRight: 28,
         borderRadius: 6,
         flexDirection: 'row',
         justifyContent: 'center',

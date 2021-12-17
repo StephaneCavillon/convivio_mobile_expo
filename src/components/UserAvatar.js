@@ -11,8 +11,17 @@ export default function UserAvatar (props) {
 
   return(
     <Avatar.Text 
-      size={90}
+      size={100}
+      style={{
+        elevation: 4,
+        shadowColor: theme.colors.shadow
+      }}
       label={firstname + lastname}
-      backgroundColor={theme.colors.backdrop} />
+      labelStyle={{
+        fontWeight: "normal",
+      }}
+      backgroundColor={theme.colors.backdrop}
+      color={theme.colors.pureWhite}
+      />
   )
 }

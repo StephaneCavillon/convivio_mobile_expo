@@ -17,6 +17,7 @@ export const theme = {
     background: '#F3F4F6',
     placeholder:'#FFFFFF',
     disabled: '#6E6E6E',
+    shadow: '#6E6E6E',
   },
 
   roundness: 4, // Degré de rondeur des éléments type boutons
@@ -51,7 +52,16 @@ export const theme = {
     fontSize: 25,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginBottom: 10,
+    marginBottom: 20,
+  },
+
+  titleTop: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginTop: 20,
   },
 
   // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
