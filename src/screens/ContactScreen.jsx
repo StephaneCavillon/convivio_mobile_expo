@@ -21,13 +21,13 @@ export default function Chat() {
         <View style={ {
           paddingTop:20
         }}>
-          <Title style={styles.legend}>Par mail</Title>
+          <Title style={theme.legend}>Par mail</Title>
           <Btn title='convivioevent@gmail.com' onPress={ () => Linking.openURL('mailto:convivioevent@gmail.com') } />
         </View>
         <View style={ {
           paddingTop:20
         }}>
-          <Title style={styles.legend}>Par téléphone</Title>
+          <Title style={theme.legend}>Par téléphone</Title>
           <Btn title='03.22.22.22.22' onPress={ () => Linking.openURL('tel: 03.22.22.22.22') } />
         </View>
         <View>
