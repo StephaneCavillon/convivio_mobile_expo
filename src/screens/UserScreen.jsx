@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { View, Text, Image } from 'react-native'
+import { TextInput, Checkbox, Button } from 'react-native-paper'
 import { theme } from '../styles/theming'
 import UserAvatar from '../components/UserAvatar'
 import Context from '../utils/context/Context'
@@ -7,7 +8,6 @@ import { API } from '../utils/api'
 
 // Import composants
 import Header from '../components/Header.js'
-import Button from '../components/Button'
 
 export default function userProfile () {
   const [ user, setUser ] = useState(null)

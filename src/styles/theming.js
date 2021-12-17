@@ -64,5 +64,11 @@ export const theme = {
     marginTop: 20,
   },
 
+  legend: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    paddingBottom: 10,
+  }
+
   // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
 }

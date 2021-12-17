@@ -34,6 +34,7 @@ export default function LoginForm (props) {
       <TextInput
         mode='outlined'
         name='pseudo'
+        style={{marginBottom: 20}}
         selectionColor={theme.colors.orange}
         activeOutlineColor={theme.colors.orange}
         onChangeText={handleChange('pseudo')}
@@ -47,6 +48,7 @@ export default function LoginForm (props) {
       <TextInput
         mode='outlined'
         name='password'
+        style={{marginBottom: 10}}
         secureTextEntry={true}
         selectionColor={theme.colors.orange}
         activeOutlineColor={theme.colors.orange}
@@ -61,7 +63,7 @@ export default function LoginForm (props) {
         label='Se souvenir de moi ?'
         position='leading'
         labelStyle={styles.label}
-        style={{ right: 0}}
+        style={{right: 0, marginBottom: 5}}
         color={theme.colors.pureWhite}
         uncheckedColor={theme.colors.pureWhite}
         status={remember ? 'checked' : 'unchecked'}
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
   },
   label: {
     color: theme.colors.pureWhite,
+    fontSize: 15,
   },
   button: {
     borderRadius: 5
