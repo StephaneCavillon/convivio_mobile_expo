@@ -17,18 +17,34 @@ export default function Options({navigation}) {
   }
 
   return(
-    <View style={{marginHorizontal: 20, marginVertical: 20}}>
+    <View style={{marginHorizontal: 20, marginVertical: 20, flex: 1}}>
       <Text style={theme.title}>Options</Text>
       <Text style={theme.legend}>Compte</Text>   
       <Text style={theme.legend}>Préférences</Text>
-      <View>
-        <Text style={{fontSize: 16, color: theme.colors.backdrop}}>
-          <MaterialCommunityIcons name="bell" size={20} />Recevoir les notifications
+      <View style={theme.containerOptions}>
+        <Text style={{
+          color: theme.colors.backdrop}}>
+          <MaterialCommunityIcons name="bell" size={20} />
+        </Text>
+        <Text style={{
+          paddingLeft: 10, 
+          fontSize: 16, 
+          color: theme.colors.backdrop
+        }}>
+          Recevoir les notifications
         </Text>
       </View>
-      <View>
-        <Text style={{fontSize: 16, color: theme.colors.backdrop}}>
-          <MaterialCommunityIcons name="moon-waning-crescent" size={20} />Dark mode
+      <View style={theme.containerOptions}>
+        <Text style={{
+          color: theme.colors.backdrop}}>
+          <MaterialCommunityIcons name="moon-waning-crescent" size={20} />
+        </Text>
+        <Text style={{
+          paddingLeft: 10, 
+          fontSize: 16, 
+          color: theme.colors.backdrop
+        }}>
+          Dark Mode
         </Text>
       </View>
       <Button title="Accès au profil utilisateur" onPress={ () => {navigation.navigate('Profile') }} />

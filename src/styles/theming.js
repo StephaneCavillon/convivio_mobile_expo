@@ -68,6 +68,19 @@ export const theme = {
     fontSize: 18,
     fontWeight: 'bold',
     paddingBottom: 10,
+  },
+
+  // OptionsScreen
+
+  containerOptions: {
+    backgroundColor: '#ffffff',
+    flexDirection: 'row', 
+    alignItems: 'center',
+    flex: 0.15,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginBottom: 5,
+    borderRadius: 6,
   }
 
   // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
