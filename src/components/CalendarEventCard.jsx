@@ -6,12 +6,11 @@ import { theme } from '../styles/theming'
 
 export function CalendarEventCard (props) {
   const { item, firstItemInDay } = props
-
+  // console.log(item)
   return (
     <TouchableOpacity
       style={firstItemInDay ? styles.firstItemInDay : styles.item}
-      onPress={() => console.log('go to event')}
-      // onPress={() => navigate('EventsScreen', { eventId: item.id }) }
+      onPress={() => navigate('Event', { eventId: item.eventId }) }
     >
 
       <View style={{ justifyContent:'space-evenly',  fontWeight:'bold'}}>

@@ -8,6 +8,7 @@ import ChatScreen from '../screens/ChatScreen'
 import ContactScreen from '../screens/ContactScreen'
 import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
+import EventScreen from '../screens/EventScreen'
 
 const Stack = createStackNavigator()
 
@@ -19,8 +20,8 @@ function LoginStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Home" component={ Home } />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
@@ -33,10 +34,12 @@ function MainStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Dashboard" component={Dashboard} />
-      <Stack.Screen name="Calendar" component={CalendarScreen} />
-      <Stack.Screen name="Contact" component={ContactScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Dashboard" component={ Dashboard } />
+      <Stack.Screen name="Calendar" component={ CalendarScreen } />
+
+      <Stack.Screen name="Event" component={ EventScreen } getId={({ params }) => params.eventId}/>
+      <Stack.Screen name="Contact" component={ ContactScreen } />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
@@ -48,10 +51,10 @@ function ChatStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Chat" component={ChatScreen} />
-      <Stack.Screen name="Contact" component={ContactScreen} />
+      <Stack.Screen name="Chat" component={ ChatScreen } />
+      <Stack.Screen name="Contact" component={ ContactScreen } />
 
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
@@ -63,9 +66,9 @@ function OptionStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Options" component={OptionsScreen} />
+      <Stack.Screen name="Options" component={ OptionsScreen } />
 
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
