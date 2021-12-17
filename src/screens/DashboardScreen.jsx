@@ -27,7 +27,7 @@ export default function Dashboard({navigation}) {
   }, [])
 
   return(
-    <View style={styles.container}>
+    <View style={theme.colors.background, {flex: 1}}>
       <StatusBar style="auto" />
       { user ? <Header user={ user } /> : null }
       <View style={{
@@ -58,11 +58,6 @@ export default function Dashboard({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.colors.background,
-    flex: 1,
-  },
-
   tiles: {
     flex: 0.65,
     flexDirection: 'row',

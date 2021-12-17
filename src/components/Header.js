@@ -3,7 +3,7 @@ import { Text, View, Image } from 'react-native';
 import { theme } from '../styles/theming';
 
 export default function Header(props) {
-  const { user } = props
+  const { user, userScreen } = props
 
   return(
     <View style={{
@@ -20,11 +20,12 @@ export default function Header(props) {
         }}
       >
       </Image>
-      <View style={{
+      {!userScreen ? (
+        <View style={{
         backgroundColor: theme.colors.backdrop,
         flex: 1,
-        marginLeft: 30,
-        marginRight: 30,
+        marginLeft: 29,
+        marginRight: 28,
         borderRadius: 6,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -40,6 +41,7 @@ export default function Header(props) {
           Bonjour {user.firstname}
         </Text>
       </View>
+      ):null}
     </View>
   )
 }

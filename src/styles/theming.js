@@ -17,24 +17,10 @@ export const theme = {
     background: '#F3F4F6',
     placeholder:'#FFFFFF',
     disabled: '#6E6E6E',
+    shadow: '#6E6E6E',
   },
 
   roundness: 4, // Degré de rondeur des éléments type boutons
-
-  // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
-}
-
-export const styles = StyleSheet.create({ // Style background image (utilisé sur le home par ex)
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
-  coverImage: {
-    width: '100%',
-    height: 850,
-  },
 
   darkness: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -48,4 +34,35 @@ export const styles = StyleSheet.create({ // Style background image (utilisé su
     position: 'absolute',
     top: 150,
   },
-})
+
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  coverImage: {
+    width: '100%',
+    height: 850,
+  },
+
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginBottom: 20,
+  },
+
+  titleTop: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginTop: 20,
+  },
+
+  // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
+}

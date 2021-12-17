@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image, ImageBackground, StyleSheet, Text, StatusBar } from 'react-native';
-import { theme, styles } from '../styles/theming';
+import { View, Image, ImageBackground, Text, StatusBar } from 'react-native';
+import { theme } from '../styles/theming';
 import Button from '../components/Button'
 
 
@@ -11,16 +11,16 @@ export default function Home({ navigation }) {
         animated={true}
         hidden
       />
-      <View style={styles.container}>
+      <View style={theme.container}>
         <ImageBackground
           source={require('../assets/img/background-home.jpg')}
-          style={styles.coverImage}
+          style={theme.coverImage}
         >
-          <View style={styles.darkness} />
+          <View style={theme.darkness} />
         </ImageBackground>
         <Image
           source={require('../assets/img/ConvivioBlanc.png')}
-          style={styles.logo}
+          style={theme.logo}
           resizeMode='contain'
         >
         </Image>

@@ -9,6 +9,7 @@ import ContactScreen from '../screens/ContactScreen'
 import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
 import EventScreen from '../screens/EventScreen'
+import UserScreen from '../screens/UserScreen'
 
 const Stack = createStackNavigator()
 
@@ -66,9 +67,9 @@ function OptionStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Options" component={ OptionsScreen } />
-
-      <Stack.Screen name="Login" component={ LoginScreen } />
+      <Stack.Screen name="Options" component={OptionsScreen} />
+      <Stack.Screen name="Profile" component={UserScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
 }
