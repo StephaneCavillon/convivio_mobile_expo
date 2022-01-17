@@ -23,8 +23,7 @@
       "adaptiveIcon": {
         "foregroundImage": "",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.ang3lorius.convivio_mobile_expo"
+      }
     },
     "web": {
       "favicon": ""
