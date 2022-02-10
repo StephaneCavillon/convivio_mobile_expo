@@ -6,7 +6,6 @@ import { theme } from '../styles/theming'
 
 export function CalendarEventCard (props) {
   const { item, firstItemInDay } = props
-  // console.log(item)
   return (
     <TouchableOpacity
       style={firstItemInDay ? styles.firstItemInDay : styles.item}

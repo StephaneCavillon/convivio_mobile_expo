@@ -1,10 +1,18 @@
-import React from 'react';
-import { View, Image, ImageBackground, Text, StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Image, ImageBackground, Text, StatusBar, ActivityIndicator } from 'react-native';
 import { theme } from '../styles/theming';
 import Button from '../components/Button'
 
 
 export default function Home({ navigation }) {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 3500)
+  }, [])
   return(
     <View>
       <StatusBar
@@ -51,10 +59,13 @@ export default function Home({ navigation }) {
         </Text>
       </View>
       <View style={{top: 340}}>
-        <Button 
+      { loading ?
+        <ActivityIndicator color={theme.colors.orange}/> :
+        <Button
           title="Let's go !"
           onPress={() => navigation.navigate('Login')}
         />
+      }
       </View>
     </View>
   )
