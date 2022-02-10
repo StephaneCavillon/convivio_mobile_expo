@@ -5,9 +5,13 @@ import { Formik, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { theme } from '../styles/theming'
 
+
 export default function LoginForm (props) {
   const { sendLoginRequest } = props
   const [ remember, setRemember ] = useState(false)
+  const [ showPassword, setShowPassword ] = useState(false)
+
+  const togglePassword = () => { setShowPassword(!showPassword) }
 
   const loginValidationSchema = Yup.object().shape({
     pseudo: Yup
@@ -49,12 +53,13 @@ export default function LoginForm (props) {
         mode='outlined'
         name='password'
         style={{marginBottom: 10}}
-        secureTextEntry={true}
+        secureTextEntry={ !showPassword }
         selectionColor={theme.colors.orange}
         activeOutlineColor={theme.colors.orange}
         onChangeText={handleChange('password')}
         onBlur={handleBlur('password')}
         value={values.password}
+        right={<TextInput.Icon onPress={ togglePassword } name={ showPassword ? 'eye-off' : 'eye' } />}
       />
       <ErrorMessage
         name='password'
