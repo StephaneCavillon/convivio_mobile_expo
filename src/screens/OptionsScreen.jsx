@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import Context from '../utils/context/Context'
-import { View, Text, Switch } from 'react-native'
+import { View, Text, Switch, TouchableOpacity } from 'react-native'
 import { LogoutModal } from '../components/LogoutModal'
 import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -23,7 +23,7 @@ export default function Options({navigation}) {
     <View style={{marginHorizontal: 20, marginVertical: 20, flex: 1}}>
       <Text style={theme.title}>Options</Text>
       <Text style={theme.legend}>Compte</Text>
-      <View style={theme.containerOptions}>
+      <TouchableOpacity style={theme.containerOptions} onPress={ () => {navigation.navigate('Profile') }} >
         <View style={{flexDirection: 'row'}}>
           <Text style={{
             color: theme.colors.backdrop}}>
@@ -37,9 +37,9 @@ export default function Options({navigation}) {
             Mes informations
           </Text>
         </View>
-      </View>
-      <View style={theme.containerOptions}>
-        <View style={{flexDirection: 'row'}}>
+      </TouchableOpacity>
+      <TouchableOpacity style={theme.containerOptions}>
+        <View style={{flexDirection: 'row'}} >
           <Text style={{
             color: theme.colors.backdrop}}>
             <MaterialCommunityIcons name="key" size={20} />
@@ -52,7 +52,7 @@ export default function Options({navigation}) {
             Mes identifiants
           </Text>
         </View>
-      </View>  
+      </TouchableOpacity>  
       <Text style={theme.legend}>Préférences</Text>
       <View style={theme.containerOptions}>
         <View style={{flexDirection: 'row'}}>
@@ -97,15 +97,12 @@ export default function Options({navigation}) {
           value={isEnabled}
         />
       </View>
-      <View style={{marginTop: 30}}>
-        <Button title="Mon profil" onPress={ () => {navigation.navigate('Profile') }}/>
-      </View>
-        <LogoutModal
-          modalVisibility={modalVisibility}
-          setModalVisibility={setModalVisibility}
-          logout={logout}
-        />
-        <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
+      <LogoutModal
+        modalVisibility={modalVisibility}
+        setModalVisibility={setModalVisibility}
+        logout={logout}
+      />
+      <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
     </View>
   )
 }

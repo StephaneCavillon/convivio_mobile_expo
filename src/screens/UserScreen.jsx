@@ -135,7 +135,6 @@ export default function userProfile () {
           <Button
             style={theme.button}
             title="Mettre à jour"
-            mode="contained"
             onPress = { () => navigation.navigate('Contact') }
             />
         </View>

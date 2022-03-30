@@ -107,7 +107,7 @@ export const theme = {
     flexDirection: 'row', 
     alignItems: 'center',
     justifyContent: 'space-between',
-    flex: 2,
+    flex: 0.4,
     paddingLeft: 20,
     paddingRight: 20,
     marginBottom: 5,
