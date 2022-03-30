@@ -27,7 +27,7 @@ export default function Dashboard({navigation}) {
   }, [])
 
   return(
-    <View style={theme.colors.background, {flex: 1}}>
+    <View style={{backgroundColor: theme.colors.background, flex: 1}}>
       <StatusBar style="auto" />
       <Header user={ user } />
       <View style={{

@@ -19,7 +19,33 @@ export default function Options({navigation}) {
   return(
     <View style={{marginHorizontal: 20, marginVertical: 20, flex: 1}}>
       <Text style={theme.title}>Options</Text>
-      <Text style={theme.legend}>Compte</Text>   
+      <Text style={theme.legend}>Compte</Text>
+      <View style={theme.containerOptions}>
+        <Text style={{
+          color: theme.colors.backdrop}}>
+          <MaterialCommunityIcons name="account" size={20} />
+        </Text>
+        <Text style={{
+          paddingLeft: 10, 
+          fontSize: 16, 
+          color: theme.colors.backdrop
+        }}>
+          Mes informations
+        </Text>
+      </View>
+      <View style={theme.containerOptions}>
+        <Text style={{
+          color: theme.colors.backdrop}}>
+          <MaterialCommunityIcons name="key" size={20} />
+        </Text>
+        <Text style={{
+          paddingLeft: 10, 
+          fontSize: 16, 
+          color: theme.colors.backdrop
+        }}>
+          Mes identifiants
+        </Text>
+      </View>  
       <Text style={theme.legend}>Préférences</Text>
       <View style={theme.containerOptions}>
         <Text style={{
@@ -42,18 +68,20 @@ export default function Options({navigation}) {
         <Text style={{
           paddingLeft: 10, 
           fontSize: 16, 
-          color: theme.colors.backdrop
+          color: theme.colors.backdrop,
         }}>
           Dark Mode
         </Text>
       </View>
-      <Button title="Accès au profil utilisateur" onPress={ () => {navigation.navigate('Profile') }} />
-      <LogoutModal
-        modalVisibility={modalVisibility}
-        setModalVisibility={setModalVisibility}
-        logout={logout}
-      />
-      <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
+      <View style={{marginTop: 30}}>
+        <Button title="Accès au profil utilisateur" onPress={ () => {navigation.navigate('Profile') }}/>
+      </View>
+        <LogoutModal
+          modalVisibility={modalVisibility}
+          setModalVisibility={setModalVisibility}
+          logout={logout}
+        />
+        <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
     </View>
   )
 }

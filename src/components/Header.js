@@ -1,20 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View, Image } from 'react-native';
 import { theme } from '../styles/theming';
+import { useRoute } from '@react-navigation/native'
 
 export default function Header(props) {
   const { user, userScreen } = props
+  const [background, setBackground] = useState()
+  const route=useRoute().name
+  console.log(route, 'route')
+
+  useEffect(() => {
+    switch(route){
+      case 'Profile' : 
+      setBackground(require('../assets/img/statue-museum.jpg'))
+      break;
+      case 'Dashboard' : 
+      setBackground(require('../assets/img/dashboard.jpg'))
+      break;
+    }
+  }, []) 
+
+  // require('../assets/img/dashboard.jpg')
 
   return(
     <View style={{
       flex: 2,
     }}>
       <Image
-        source={require('../assets/img/dashboard.jpg')}
+        source={background}
         resizeMode='cover'
         style={{
           width: '100%',
-          flex: 4,
+          flex: 3,
           borderBottomLeftRadius: 30,
           borderBottomRightRadius: 30,
         }}

@@ -17,8 +17,7 @@ export default function Tiles(props) {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          shadowColor: theme.colors.shadow,
-          elevation: 3,
+          elevation: 1,
         }}
         mode="contained"
         onPress={onPress}>

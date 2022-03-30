@@ -55,6 +55,15 @@ export const theme = {
     marginBottom: 20,
   },
 
+  title_2: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#222222',
+  },
+
+
+
   titleTop: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -68,6 +77,28 @@ export const theme = {
     fontSize: 18,
     fontWeight: 'bold',
     paddingBottom: 10,
+    marginTop: 15,
+  },
+
+  label: {
+    fontSize: 15,
+    fontWeight: '400',
+    paddingBottom: 5,
+    marginTop: 20,
+    color: '#222222'
+  },
+
+  input: {
+    backgroundColor: '#ffffff',
+    height: 50,
+  },
+
+  button: {
+    marginTop: 60,
+    marginBottom: 30,
+    color: '#FFFFFF',
+    backgroundColor: '#F25835',
+    height: 45,
   },
 
   // OptionsScreen
@@ -76,11 +107,12 @@ export const theme = {
     backgroundColor: '#ffffff',
     flexDirection: 'row', 
     alignItems: 'center',
-    flex: 0.15,
+    flex: 2,
     paddingLeft: 20,
     paddingRight: 20,
     marginBottom: 5,
     borderRadius: 6,
+    elevation: 1,
   }
 
   // Importer les fonts --> Montserrat + ses variantes regular, semiBold, bold
