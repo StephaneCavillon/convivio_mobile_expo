@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 export const theme = {
   colors: {
     orange: '#F25835',
+    paleOrange: '#F7D2CA',
     falseBlack: '#222222',
     pureBlack: '#000000',
     beige: '#F2EDE4',
@@ -16,7 +17,7 @@ export const theme = {
     backdrop: '#222222', // Couleur de background pour modales
     background: '#F3F4F6',
     placeholder:'#FFFFFF',
-    disabled: '#6E6E6E',
+    disabled: '#AFAFAF',
     shadow: '#6E6E6E',
   },
 
@@ -62,8 +63,6 @@ export const theme = {
     color: '#222222',
   },
 
-
-
   titleTop: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -107,6 +106,7 @@ export const theme = {
     backgroundColor: '#ffffff',
     flexDirection: 'row', 
     alignItems: 'center',
+    justifyContent: 'space-between',
     flex: 2,
     paddingLeft: 20,
     paddingRight: 20,

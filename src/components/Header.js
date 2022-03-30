@@ -9,7 +9,7 @@ export default function Header(props) {
   const route=useRoute().name
   console.log(route, 'route')
 
-  useEffect(() => {
+  useEffect(() => { // Permet de changer l'image du header selon le screen
     switch(route){
       case 'Profile' : 
       setBackground(require('../assets/img/statue-museum.jpg'))
@@ -19,8 +19,6 @@ export default function Header(props) {
       break;
     }
   }, []) 
-
-  // require('../assets/img/dashboard.jpg')
 
   return(
     <View style={{

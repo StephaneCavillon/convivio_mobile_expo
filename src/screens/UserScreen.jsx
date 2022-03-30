@@ -30,8 +30,6 @@ export default function userProfile () {
     getUser()
   }, [])
 
-  
-
   return(
     <View style={{backgroundColor: theme.colors.background, flex:1}} >
       <Header 
