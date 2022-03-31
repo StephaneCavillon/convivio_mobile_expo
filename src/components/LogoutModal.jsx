@@ -1,5 +1,5 @@
 import React from "react"
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native"
+import { Modal, StyleSheet, Text, View } from "react-native"
 import { theme } from '../styles/theming'
 import Button from './Button'
 
@@ -17,17 +17,20 @@ export function LogoutModal (props) {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Confirmer la deconnexion</Text>
+            <Text style={styles.modalText}>Confirmer la déconnexion ?</Text>
             <View style={{flexDirection:'row', justifyContent: 'space-between', width:'80%'}}>
               <Button
+                mode='contained'
                 title='oui'
                 width='100%'
                 onPress={() => logout()}
               />
               <Button
+                mode='contained'
                 title='non'
                 width='100%'
-                color={theme.colors.beige}
+                textColor={theme.colors.pureWhite}
+                color={theme.colors.shadow}
                 onPress={() => setModalVisibility(!modalVisibility)}
               />
             </View>

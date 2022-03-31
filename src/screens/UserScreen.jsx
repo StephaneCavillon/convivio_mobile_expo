@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { View, Text, Image } from 'react-native'
-import { TextInput, Checkbox, List} from 'react-native-paper'
+import { View, Text } from 'react-native'
+import { TextInput, List} from 'react-native-paper'
 import { ScrollView } from 'react-native-gesture-handler'
 import { theme } from '../styles/theming'
 import Context from '../utils/context/Context'
@@ -10,8 +10,6 @@ import { API } from '../utils/api'
 import Header from '../components/Header.js'
 import Button from '../components/Button'
 import UserAvatar from '../components/UserAvatar'
-
-
 
 export default function userProfile () {
   const [ user, setUser ] = useState(null)

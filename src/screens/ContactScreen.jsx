@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, Linking } from 'react-native'
+import { View, Text, Image, Linking } from 'react-native'
 import { Title } from 'react-native-paper'
 import Button from '../components/Button'
 import { theme } from '../styles/theming'

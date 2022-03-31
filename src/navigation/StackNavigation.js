@@ -9,6 +9,7 @@ import ContactScreen from '../screens/ContactScreen'
 import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
 import UserScreen from '../screens/UserScreen'
+import CredentialsScreen from '../screens/CredentialsScreen'
 
 const Stack = createStackNavigator()
 
@@ -51,7 +52,6 @@ function ChatStackNavigator() {
     >
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
-
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
@@ -66,6 +66,7 @@ function OptionStackNavigator() {
     >
       <Stack.Screen name="Options" component={OptionsScreen} />
       <Stack.Screen name="Profile" component={UserScreen} />
+      <Stack.Screen name="Credentials" component={CredentialsScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )

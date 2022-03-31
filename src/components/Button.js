@@ -1,19 +1,20 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Button, List } from 'react-native-paper'
+import { Button } from 'react-native-paper'
 import { theme } from '../styles/theming'
 
 export default function GeneralButton(props){
   const { title, onPress } = props;
   const color = props.color ?? theme.colors.orange
   const width = props.width ?? '75%'
+  const mode = props.mode ?? 'contained'
   const uppercase = props.uppercase ?? 'false'
   const textColor = props.textColor ?? theme.colors.pureWhite
 
   return(
     <View style={{alignItems:'center'}}>
       <Button
-          mode='contained'
+          mode={mode}
           style={styles.button}
           width={width}
           color={color}
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 30,
     height: 45,
-    justifyContent:'center'
+    justifyContent:'center',
   },
   home: {
     top: 350,

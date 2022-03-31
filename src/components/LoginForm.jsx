@@ -72,7 +72,7 @@ export default function LoginForm (props) {
 
       <Button
         mode='contained'
-        style={styles.button}
+        style={theme.button}
         color={theme.colors.orange}
         labelStyle={{color: theme.colors.pureWhite}}
         onPress={handleSubmit}
@@ -94,7 +94,4 @@ const styles = StyleSheet.create({
     color: theme.colors.pureWhite,
     fontSize: 15,
   },
-  button: {
-    borderRadius: 5
-  }
 })

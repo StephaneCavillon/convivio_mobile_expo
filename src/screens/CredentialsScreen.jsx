@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { theme } from '../styles/theming'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function Options({navigation}) {
+export default function Credentials({navigation}) {
   const { isLogged, setIsLogged } = useContext(Context)
   const [ modalVisibility, setModalVisibility ] = useState(false)
 
@@ -21,88 +21,10 @@ export default function Options({navigation}) {
 
   return(
     <View style={{marginHorizontal: 20, marginVertical: 20, flex: 1}}>
-      <Text style={theme.title}>Options</Text>
-      <Text style={theme.legend}>Compte</Text>
-      <TouchableOpacity style={theme.containerOptions} onPress={ () => {navigation.navigate('Profile') }} >
-        <View style={{flexDirection: 'row'}}>
-          <Text style={{
-            color: theme.colors.backdrop}}>
-            <MaterialCommunityIcons name="account" size={20} />
-          </Text>
-          <Text style={{
-            paddingLeft: 10, 
-            fontSize: 16, 
-            color: theme.colors.backdrop
-          }}>
-            Mes informations
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={theme.containerOptions}>
-        <View style={{flexDirection: 'row'}} >
-          <Text style={{
-            color: theme.colors.backdrop}}>
-            <MaterialCommunityIcons name="key" size={20} />
-          </Text>
-          <Text style={{
-            paddingLeft: 10, 
-            fontSize: 16, 
-            color: theme.colors.backdrop
-          }}>
-            Mes identifiants
-          </Text>
-        </View>
-      </TouchableOpacity>  
-      <Text style={theme.legend}>Préférences</Text>
-      <View style={theme.containerOptions}>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={{
-            color: theme.colors.backdrop}}>
-            <MaterialCommunityIcons name="bell" size={20} />
-          </Text>
-          <Text style={{
-            paddingLeft: 10, 
-            fontSize: 16, 
-            color: theme.colors.backdrop
-          }}>
-            Recevoir les notifications
-          </Text>
-        </View>
-        <Switch
-          trackColor={{ false: theme.colors.disabled, true: theme.colors.paleOrange }}
-          thumbColor={isEnabled ? theme.colors.orange : theme.colors.pureWhite}
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-      </View>
-      <View style={theme.containerOptions}>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={{
-            color: theme.colors.backdrop}}>
-            <MaterialCommunityIcons name="moon-waning-crescent" size={20} />
-          </Text>
-          <Text style={{
-            paddingLeft: 10, 
-            fontSize: 16, 
-            color: theme.colors.backdrop,
-          }}
-          >
-            Dark Mode
-          </Text>
-        </View>
-        <Switch
-          trackColor={{ false: theme.colors.disabled, true: theme.colors.paleOrange }}
-          thumbColor={isEnabled ? theme.colors.orange : theme.colors.pureWhite}
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-      </View>
-      <LogoutModal
-        modalVisibility={modalVisibility}
-        setModalVisibility={setModalVisibility}
-        logout={logout}
-      />
-      <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
+      <Text style={theme.title}>Mes identifiants</Text>
+      <Text style={theme.legend}>Pseudo</Text>
+      <Text style={theme.legend}>Mot de passe</Text>
+      <Button title="Modifier mes identifiants" onPress={() => setModalVisibility(!modalVisibility)} />
     </View>
   )
 }

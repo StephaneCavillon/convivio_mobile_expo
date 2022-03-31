@@ -104,6 +104,7 @@ export const theme = {
     color: '#FFFFFF',
     backgroundColor: '#F25835',
     height: 45,
+    justifyContent: 'center',
   },
 
   paragraph: {
