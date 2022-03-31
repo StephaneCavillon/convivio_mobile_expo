@@ -37,8 +37,8 @@ export default function LoginScreen () {
     }
   }
 
+  // registering of refreshToken in localstorage
   async function registerToken(user) {
-    // registering of refreshToken in localstorage
     await AsyncStorage.setItem('accessToken', user.data.accessToken)
   }
 
@@ -48,7 +48,7 @@ export default function LoginScreen () {
 
   return (
     <View style={styles.container}>
-        <StatusBar
+      <StatusBar
         animated={true}
         translucent
         backgroundColor={"transparent"}

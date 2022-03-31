@@ -8,6 +8,7 @@ import ChatScreen from '../screens/ChatScreen'
 import ContactScreen from '../screens/ContactScreen'
 import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
+import EventScreen from '../screens/EventScreen'
 import UserScreen from '../screens/UserScreen'
 import CredentialsScreen from '../screens/CredentialsScreen'
 
@@ -21,8 +22,8 @@ function LoginStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Home" component={ Home } />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
@@ -35,10 +36,11 @@ function MainStackNavigator() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Dashboard" component={Dashboard} />
-      <Stack.Screen name="Calendar" component={CalendarScreen} />
-      <Stack.Screen name="Contact" component={ContactScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Dashboard" component={ Dashboard } />
+      <Stack.Screen name="Calendar" component={ CalendarScreen } />
+      <Stack.Screen name="Event" component={ EventScreen } getId={({ params }) => params.eventId}/>
+      <Stack.Screen name="Contact" component={ ContactScreen } />
+      <Stack.Screen name="Login" component={ LoginScreen } />
     </Stack.Navigator>
   )
 }
