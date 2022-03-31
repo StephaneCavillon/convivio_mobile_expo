@@ -1,17 +1,21 @@
 import React from 'react'
 import { View, Text, Image, Linking } from 'react-native'
-import { Title } from 'react-native-paper'
+import { Title, Appbar } from 'react-native-paper'
 import Button from '../components/Button'
 import { theme } from '../styles/theming'
 
-export default function Chat() {
+export default function ContactUs({navigation}) {
   return(
+    <View style={{flex: 1}}>
+      <View>
+        <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
+          <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+          <Appbar.Content title="Nous contacter" />
+        </Appbar.Header>
+      </View>
     <View style={theme.colors.background}>
       <View style={{marginHorizontal: 20, marginVertical: 20}}>
         <View>
-          <Title style={theme.title}>
-            Nous contacter
-          </Title>
           <Text style={theme.paragraph}>
             Convivio, c'est une team à votre service <Text style={{fontWeight: 'bold'}}>du lundi au samedi, de 9h00 à 18h00</Text>
           </Text>
@@ -20,7 +24,7 @@ export default function Chat() {
         </View>
         <View>
           <Title style={theme.legend_2}>Par mail</Title>
-          <Button title='convivioevent@gmail.com' onPress={ () => Linking.openURL('mailto:convivioevent@gmail.com') }/>
+          <Button title='hello@convivio.fr' onPress={ () => Linking.openURL('mailto:convivioevent@gmail.com') }/>
         </View>
         <View>
           <Title style={theme.legend_2}>Par téléphone</Title>
@@ -38,12 +42,13 @@ export default function Chat() {
           </Button>
         </View>
       </View>
-      <Image style={{
+    </View>
+    <Image style={{
           width: '100%',
           height: '30%',
-          top: -20
+          top: -30,
         }}
         source={require('../assets/img/team_dessin_grey.png')}/>
-    </View>
+  </View>
   )
 }

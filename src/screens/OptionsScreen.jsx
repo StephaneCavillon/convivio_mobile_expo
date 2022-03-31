@@ -24,7 +24,7 @@ export default function Options({navigation}) {
     <View style={{flex: 1}}>
     <View>
       <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
-        <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+        <Appbar.BackAction onPress={ () => { navigation.goBack() }} />
         <Appbar.Content title="Options" />
       </Appbar.Header>
     </View>

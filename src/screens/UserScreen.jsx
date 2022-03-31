@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { View, Text } from 'react-native'
-import { TextInput, List} from 'react-native-paper'
+import { TextInput, List, Appbar} from 'react-native-paper'
 import { ScrollView } from 'react-native-gesture-handler'
 import { theme } from '../styles/theming'
 import Context from '../utils/context/Context'
@@ -11,7 +11,7 @@ import Header from '../components/Header.js'
 import Button from '../components/Button'
 import UserAvatar from '../components/UserAvatar'
 
-export default function userProfile () {
+export default function userProfile ({navigation}) {
   const [ user, setUser ] = useState(null)
   const { getUserId } = useContext(Context)
   const getUser = async () => {
@@ -29,15 +29,22 @@ export default function userProfile () {
   }, [])
 
   return(
-    <View style={{backgroundColor: theme.colors.background, flex:1}} >
+    <View style={{flex: 1}}>
+    <View>
+      <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
+        <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+        <Appbar.Content title="Vos informations" />
+      </Appbar.Header>
+    </View>
+    <View style={{backgroundColor: theme.colors.background, flex:2}} >
       <Header 
         userScreen={true}
       />
-      <View style={{marginHorizontal: 20, flex: 6,}}>
+      <View style={{marginHorizontal: 20, flex: 7}}>
         <View style={{
           flexDirection: "column",
           alignItems: "center",
-          top: -50,
+          top: -55,
           }}>
           {user ? (
             <UserAvatar user={user} />
@@ -46,7 +53,7 @@ export default function userProfile () {
             Nom d'utilisateur
           </Text>
         </View>
-        <ScrollView style={{marginTop: -15}} overScrollMode="never">
+        <ScrollView style={{marginTop: -20}} overScrollMode="never">
         <View 
           style={{
             flex: 3,
@@ -106,7 +113,7 @@ export default function userProfile () {
             autoCapitalize='sentences'
             right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
-          <List.Section style={{marginTop: 35}}>
+          <List.Section style={{marginTop: 30}}>
             <List.Accordion
               title="Complément d'adresse"
               titleStyle={theme.title_2}
@@ -139,12 +146,15 @@ export default function userProfile () {
                 />
             </List.Accordion>
           </List.Section>
-          <Button
-            title="Mettre à jour"
-          />
+          <View style={{flex: 0.6}}>
+            <Button
+              title="Mettre à jour"
+            />
+          </View>
         </View>
         </ScrollView>
       </View>
+    </View>
     </View>
   )
 }

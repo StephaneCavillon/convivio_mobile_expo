@@ -43,7 +43,7 @@ export default function Credentials({navigation}) {
           right={<TextInput.Icon name="pencil" color={theme.colors.orange} onPress = { () => navigation.navigate('Password') }/>}
         />
       </View>
-      <View style={{flex: 1.1}}>
+      <View style={{flex: 1.}}>
         <Title style={theme.legend_2}>Information</Title>
         <Text style={theme.paragraph}>
           L'identifiant et le mot de passe étant générés par l'agence à la création de votre compte client, seul le mot de passe est ensuite modifiable dans l'application.

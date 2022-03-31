@@ -69,7 +69,7 @@ export const theme = {
     fontSize: 25,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginTop: 20,
+    marginTop: 15,
   },
 
   legend: {
@@ -83,6 +83,7 @@ export const theme = {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 15,
+    marginBottom: -10
   },
 
   label: {

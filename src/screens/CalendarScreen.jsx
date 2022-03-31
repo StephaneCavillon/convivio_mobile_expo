@@ -1,4 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
+import { View } from 'react-native'
+import { Appbar} from 'react-native-paper'
 import { Agenda } from 'react-native-calendars'
 import { LocaleConfig } from 'react-native-calendars'
 import Context from '../utils/context/Context'
@@ -17,7 +19,7 @@ LocaleConfig.locales['fr'] = {
 }
 LocaleConfig.defaultLocale = 'fr'
 
-export default function CalendarScreen() {
+export default function CalendarScreen({navigation}) {
   const [ events, setEvents ] = useState([])
   const { getUserId } = useContext(Context)
 
@@ -66,16 +68,24 @@ export default function CalendarScreen() {
   }, [events])
 
   return (
-    <Agenda
-      firstDay={1}
-      theme={{
-        selectedDayBackgroundColor: theme.colors.orange,
-        todayTextColor: theme.colors.orange,
-        dotColor: theme.colors.orange,
-      }}
-      pastScrollRange={24}
-      items={ events.length !== 0 ? formatItems(events) : {}}
-      renderItem={(item, firstItemInDay) => <CalendarEventCard item={item} firstItemInDay={firstItemInDay} />}
-    />
+    <View style={{flex: 1}}>
+      <View>
+        <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
+          <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+          <Appbar.Content title="Agenda" />
+        </Appbar.Header>
+      </View>
+      <Agenda
+        firstDay={1}
+        theme={{
+          selectedDayBackgroundColor: theme.colors.orange,
+          todayTextColor: theme.colors.orange,
+          dotColor: theme.colors.orange,
+        }}
+        pastScrollRange={24}
+        items={ events.length !== 0 ? formatItems(events) : {}}
+        renderItem={(item, firstItemInDay) => <CalendarEventCard item={item} firstItemInDay={firstItemInDay} />}
+      />
+    </View>
   )
 }

@@ -14,13 +14,13 @@ export default function UserAvatar (props) {
       size={100}
       style={{
         elevation: 4,
-        shadowColor: theme.colors.shadow
+        shadowColor: theme.colors.orange
       }}
       label={firstname + lastname}
       labelStyle={{
         fontWeight: "normal",
       }}
-      backgroundColor={theme.colors.backdrop}
+      backgroundColor={theme.colors.orange}
       color={theme.colors.pureWhite}
       />
   )

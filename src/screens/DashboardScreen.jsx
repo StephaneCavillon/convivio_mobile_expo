@@ -35,10 +35,10 @@ export default function Dashboard({navigation}) {
         marginHorizontal: 30,
         }}>
         <View style={styles.tiles}>
-          <Tiles icon='creation'/>
+          <Tiles icon='creation' onPress = { () => {navigation.navigate('ListEvents') }}/>
           <Tiles icon='calendar' onPress = { () => {navigation.navigate('Calendar') }}/>
-          <Tiles icon='file-document-outline'/>
-          <Tiles icon='chart-bar'/>
+          <Tiles icon='file-document-outline' onPress = { () => {navigation.navigate('Documents') }}/>
+          <Tiles icon='chart-bar' onPress = { () => {navigation.navigate('Budget') }}/>
         </View>
         <View style={{
           flex: 3,
@@ -46,7 +46,7 @@ export default function Dashboard({navigation}) {
           <Text style={styles.title}>Évènement(s) en cours</Text>
         </View>
         <View style={{
-          flex: 1,
+          flex: 1.2,
           flexDirection: 'column',
           justifyContent: 'center',
         }}>

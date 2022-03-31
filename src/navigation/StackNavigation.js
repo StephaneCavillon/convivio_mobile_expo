@@ -9,9 +9,12 @@ import ContactScreen from '../screens/ContactScreen'
 import CalendarScreen from '../screens/CalendarScreen'
 import OptionsScreen from '../screens/OptionsScreen'
 import EventScreen from '../screens/EventScreen'
+import ListEvents from '../screens/ListEventsScreen'
 import UserScreen from '../screens/UserScreen'
 import CredentialsScreen from '../screens/CredentialsScreen'
 import Password from '../screens/PasswordScreen'
+import Documents from '../screens/DocumentsScreen'
+import Budget from '../screens/BudgetScreen'
 
 const Stack = createStackNavigator()
 
@@ -40,8 +43,11 @@ function MainStackNavigator() {
       <Stack.Screen name="Dashboard" component={ Dashboard } />
       <Stack.Screen name="Calendar" component={ CalendarScreen } />
       <Stack.Screen name="Event" component={ EventScreen } getId={({ params }) => params.eventId}/>
+      <Stack.Screen name="ListEvents" component={ ListEvents } />
+      <Stack.Screen name="Budget" component={ Budget } />
       <Stack.Screen name="Contact" component={ ContactScreen } />
       <Stack.Screen name="Login" component={ LoginScreen } />
+      <Stack.Screen name="Documents" component={ Documents } />
     </Stack.Navigator>
   )
 }
