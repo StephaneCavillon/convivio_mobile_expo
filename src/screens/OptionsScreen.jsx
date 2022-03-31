@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import Context from '../utils/context/Context'
 import { View, Text, Switch, TouchableOpacity } from 'react-native'
+import { Appbar } from 'react-native-paper'
 import { LogoutModal } from '../components/LogoutModal'
 import Button from '../components/Button'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -20,8 +21,14 @@ export default function Options({navigation}) {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return(
+    <View style={{flex: 1}}>
+    <View>
+      <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
+        <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+        <Appbar.Content title="Options" />
+      </Appbar.Header>
+    </View>
     <View style={{marginHorizontal: 20, marginVertical: 20, flex: 2}}>
-      <Text style={theme.title}>Options</Text>
       <Text style={theme.legend}>Compte</Text>
       <TouchableOpacity style={theme.containerOptions} onPress={ () => {navigation.navigate('Profile') }} >
         <View style={{flexDirection: 'row'}}>
@@ -102,9 +109,10 @@ export default function Options({navigation}) {
         setModalVisibility={setModalVisibility}
         logout={logout}
       />
-      <View style={{flex: 0.5}}>
+      <View style={{flex: 0.6}}>
         <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
       </View>
     </View>
+  </View>
   )
 }

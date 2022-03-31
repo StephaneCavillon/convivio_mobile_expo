@@ -11,6 +11,7 @@ import OptionsScreen from '../screens/OptionsScreen'
 import EventScreen from '../screens/EventScreen'
 import UserScreen from '../screens/UserScreen'
 import CredentialsScreen from '../screens/CredentialsScreen'
+import Password from '../screens/PasswordScreen'
 
 const Stack = createStackNavigator()
 
@@ -69,6 +70,7 @@ function OptionStackNavigator() {
       <Stack.Screen name="Options" component={OptionsScreen} />
       <Stack.Screen name="Profile" component={UserScreen} />
       <Stack.Screen name="Credentials" component={CredentialsScreen} />
+      <Stack.Screen name="Password" component={Password} />
       <Stack.Screen name="Login" component={LoginScreen} />
     </Stack.Navigator>
   )
