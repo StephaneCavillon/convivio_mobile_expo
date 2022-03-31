@@ -20,7 +20,7 @@ export default function Options({navigation}) {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return(
-    <View style={{marginHorizontal: 20, marginVertical: 20, flex: 2}}>
+    <View style={{marginHorizontal: 20, marginVertical: 20, flex: 1}}>
       <Text style={theme.title}>Options</Text>
       <Text style={theme.legend}>Compte</Text>
       <TouchableOpacity style={theme.containerOptions} onPress={ () => {navigation.navigate('Profile') }} >
@@ -102,9 +102,7 @@ export default function Options({navigation}) {
         setModalVisibility={setModalVisibility}
         logout={logout}
       />
-      <View style={{flex: 0.5}}>
-        <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
-      </View>
+      <Button title="Déconnexion" onPress={() => setModalVisibility(!modalVisibility)} />
     </View>
   )
 }

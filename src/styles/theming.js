@@ -75,7 +75,13 @@ export const theme = {
   legend: {
     fontSize: 18,
     fontWeight: 'bold',
-    paddingBottom: 10,
+    marginTop: 20,
+    marginBottom: 15,
+  },
+
+  legend_2: {
+    fontSize: 18,
+    fontWeight: 'bold',
     marginTop: 15,
   },
 
@@ -93,11 +99,16 @@ export const theme = {
   },
 
   button: {
-    marginTop: 60,
+    marginTop: 30,
     marginBottom: 30,
     color: '#FFFFFF',
     backgroundColor: '#F25835',
     height: 45,
+  },
+
+  paragraph: {
+    paddingTop: 10,
+    fontSize: 15,
   },
 
   // OptionsScreen

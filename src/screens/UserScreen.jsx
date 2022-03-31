@@ -133,7 +133,6 @@ export default function userProfile () {
             </List.Accordion>
           </List.Section>
           <Button
-            style={theme.button}
             title="Mettre à jour"
             onPress = { () => navigation.navigate('Contact') }
             />
