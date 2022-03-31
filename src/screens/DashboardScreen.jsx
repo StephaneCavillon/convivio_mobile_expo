@@ -31,7 +31,7 @@ export default function Dashboard({navigation}) {
       <StatusBar style="auto" />
       { user ? <Header user={ user } /> : null }
       <View style={{
-        flex: 4,
+        flex: 5,
         marginHorizontal: 30,
         }}>
         <View style={styles.tiles}>
@@ -46,7 +46,7 @@ export default function Dashboard({navigation}) {
           <Text style={styles.title}>Évènement(s) en cours</Text>
         </View>
         <View style={{
-          flex: 1.2,
+          flex: 1,
           flexDirection: 'column',
           justifyContent: 'center',
         }}>

@@ -21,10 +21,6 @@ export function TabNavigation() {
         component={ChatStackNavigator}
         options={{
           tabBarLabel: 'Messages',
-          tabBarBadge: 1,
-          tabBarBadgeStyle: {
-            backgroundColor: theme.colors.orange
-          },
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="email" color={color} size={26} />
           ),

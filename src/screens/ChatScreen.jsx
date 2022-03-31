@@ -8,7 +8,7 @@ export default function Chat({navigation}) {
     <View style={{flex: 1}}>
       <View>
         <Appbar.Header style={{backgroundColor: theme.colors.backdrop}}>
-          <Appbar.BackAction onPress={ () => {navigation.goBack() }} />
+          <Appbar.BackAction onPress={ () => {navigation.navigate('Dashboard') }} />
           <Appbar.Content title="Chat direct avec l'agence" />
         </Appbar.Header>
       </View>
