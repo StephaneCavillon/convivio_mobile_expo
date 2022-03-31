@@ -38,7 +38,7 @@ export default function Options({navigation}) {
           </Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={theme.containerOptions}>
+      <TouchableOpacity style={theme.containerOptions} onPress={ () => {navigation.navigate('Credentials') }}>
         <View style={{flexDirection: 'row'}} >
           <Text style={{
             color: theme.colors.backdrop}}>

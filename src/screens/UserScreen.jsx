@@ -33,7 +33,7 @@ export default function userProfile () {
       <Header 
         userScreen={true}
       />
-      <View style={{marginHorizontal: 30, flex: 6,}}>
+      <View style={{marginHorizontal: 20, flex: 6,}}>
         <View style={{
           flexDirection: "column",
           alignItems: "center",
@@ -61,6 +61,7 @@ export default function userProfile () {
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="Dupont"
             autoCapitalize='sentences'
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <Text style={theme.label}>Prénom</Text>
           <TextInput 
@@ -69,6 +70,7 @@ export default function userProfile () {
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="Jean"
             autoCapitalize='sentences'
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <Text style={theme.label}>Numéro de téléphone</Text>
           <TextInput 
@@ -76,6 +78,7 @@ export default function userProfile () {
             selectionColor={theme.colors.orange}
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="Ex : 0689245115"
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <Text style={theme.label}>E-mail de contact</Text>
           <TextInput 
@@ -83,6 +86,7 @@ export default function userProfile () {
             selectionColor={theme.colors.orange}
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="jeandupont@monemail.fr"
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <Text style={theme.label}>Entreprise</Text>
           <TextInput 
@@ -91,6 +95,7 @@ export default function userProfile () {
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="Mon entreprise"
             autoCapitalize='sentences'
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <Text style={theme.label}>Adresse de l'entreprise</Text>
           <TextInput 
@@ -99,6 +104,7 @@ export default function userProfile () {
             theme={{colors: {primary: theme.colors.orange}}}
             placeholder="Ex : 70 rue des Jacobins, 80000 Amiens"
             autoCapitalize='sentences'
+            right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
           />
           <List.Section style={{marginTop: 35}}>
             <List.Accordion
@@ -112,6 +118,7 @@ export default function userProfile () {
                 theme={{colors: {primary: theme.colors.orange}}}
                 placeholder="Ex : Bâtiment C"
                 autoCapitalize='sentences'
+                right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
               />
               <Text style={theme.label}>Étage</Text>
               <TextInput 
@@ -119,6 +126,7 @@ export default function userProfile () {
                 selectionColor={theme.colors.orange}
                 theme={{colors: {primary: theme.colors.orange}}}
                 placeholder="Ex : 3"
+                right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
               />
               <Text style={theme.label}>Lieu-dit</Text>
                 <TextInput 
@@ -127,13 +135,13 @@ export default function userProfile () {
                   theme={{colors: {primary: theme.colors.orange}}}
                   placeholder="Ex : Tour Eiffel"
                   autoCapitalize='sentences'
+                  right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                 />
             </List.Accordion>
           </List.Section>
           <Button
             title="Mettre à jour"
-            onPress = { () => navigation.navigate('Contact') }
-            />
+          />
         </View>
         </ScrollView>
       </View>
