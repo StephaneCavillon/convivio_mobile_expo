@@ -1,5 +1,6 @@
 import { CurrentRenderContext } from '@react-navigation/native'
 import { StyleSheet } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const theme = {
   colors: {
@@ -63,6 +64,12 @@ export const theme = {
     color: '#222222',
   },
 
+  title_3: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#222222',
+  },
+
   titleTop: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -111,6 +118,19 @@ export const theme = {
   paragraph: {
     paddingTop: 10,
     fontSize: 15,
+  },
+
+  card: {
+    marginTop: 5,
+  },
+
+  chip: {
+    borderRadius: 3,
+    padding: 5,
+    backgroundColor: '#F25835',
+    color: '#FFFFFF',
+    fontSize: 13,
+    marginHorizontal: 5,
   },
 
   // OptionsScreen

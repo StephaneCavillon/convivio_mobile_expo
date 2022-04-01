@@ -7,13 +7,15 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 export default function Tiles(props) {
   const { icon, onPress } = props;
+  const { title } = props;
   return(
     <View style={{
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      height: 100,
       flex: 1,
-      marginHorizontal: 5,
+      marginHorizontal: 10,
     }}>
       <Button
         style={{
@@ -22,7 +24,8 @@ export default function Tiles(props) {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          elevation: 1,
+          elevation: 2,
+          flex: 9,
         }}
         mode="contained"
         onPress={onPress}>
@@ -34,7 +37,7 @@ export default function Tiles(props) {
             />
           </Text>
       </Button>
-      <Text>Title</Text>
+      <Text style={{flex: 5, marginTop: 8}}>{title}</Text>
     </View>
   )
 }
