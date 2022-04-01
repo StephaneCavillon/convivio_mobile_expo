@@ -36,7 +36,7 @@ export default function userProfile({ navigation }) {
           <Appbar.Content title="Vos informations" />
         </Appbar.Header>
       </View>
-      <ScrollView style={{ marginTop: -20 }} overScrollMode="never">
+      <ScrollView overScrollMode="never">
         <View style={{ backgroundColor: theme.colors.background, flex: 2 }}>
           <Header
             userScreen={true}
@@ -58,7 +58,7 @@ export default function userProfile({ navigation }) {
               style={{
                 flex: 3,
                 flexDirection: 'column',
-                justifyContent: 'flex-end',
+                marginTop: -25,
               }}
             >
               <Text style={{ fontSize: 15, paddingBottom: 5, color: theme.colors.falseBlack }}>Nom</Text>
