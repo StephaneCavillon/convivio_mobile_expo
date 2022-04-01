@@ -27,6 +27,10 @@ export default function Dashboard({ navigation }) {
     getUser()
   }, [])
 
+  const [expanded, setExpanded] = React.useState(true);
+
+  const handlePress = () => setExpanded(!expanded);
+
   return (
     <View style={{ backgroundColor: theme.colors.background, flex: 1 }}>
       <StatusBar style="auto" />
@@ -48,13 +52,40 @@ export default function Dashboard({ navigation }) {
             <List.Accordion
               title="Évènements en cours"
               titleStyle={theme.title_3}
+              expanded={expanded}
+              onPress={handlePress}
             >
               <Card style={theme.card}>
                 <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
                 <Card.Content>
                   <Paragraph>Date prévue : </Paragraph>
                   <Paragraph>Lieu : </Paragraph>
-                  <View style={{ marginTop: 10 }}>
+                  <View style={{ marginTop: 5 }}>
+                    <Text>Statut :
+                      <View>
+                        <Text style={theme.chip}>Exemple</Text>
+                      </View>
+                    </Text>
+                  </View>
+                </Card.Content>
+              </Card>
+            </List.Accordion>
+          </List.Section>
+        </View>
+        <View style={{
+          flex: 2,
+        }}>
+          <List.Section>
+            <List.Accordion
+              title="Évènements passés"
+              titleStyle={theme.title_3}
+            >
+              <Card style={theme.card}>
+                <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
+                <Card.Content>
+                  <Paragraph>Date prévue : </Paragraph>
+                  <Paragraph>Lieu : </Paragraph>
+                  <View style={{ marginTop: 5 }}>
                     <Text>Statut :
                       <View>
                         <Text style={theme.chip}>Exemple</Text>
