@@ -33,7 +33,7 @@ export default function Tiles(props) {
             <MaterialCommunityIcons
               name={icon}
               color={theme.colors.orange}
-              size={25}
+              size={28}
             />
           </Text>
       </Button>

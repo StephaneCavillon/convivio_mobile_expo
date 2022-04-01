@@ -29,6 +29,7 @@ export default function Header(props) {
         resizeMode='cover'
         style={{
           width: '100%',
+          height: 150,
           flex: 3,
           borderBottomLeftRadius: 30,
           borderBottomRightRadius: 30,
@@ -45,13 +46,15 @@ export default function Header(props) {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        top: -25,
+        top: -20,
         }}
         >
         <Text style={{
           color: theme.colors.pureWhite,
           fontSize: 23,
           fontWeight: 'bold',
+          paddingTop: 10,
+          paddingBottom: 10,
         }}>
           Bonjour {user.firstname}
         </Text>

@@ -131,6 +131,7 @@ export const theme = {
     color: '#FFFFFF',
     fontSize: 13,
     marginHorizontal: 5,
+    height: 28,
   },
 
   // OptionsScreen
