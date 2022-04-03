@@ -1,17 +1,21 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { StyleSheet, StatusBar, View, Text, ScrollView } from 'react-native'
-import { Card, Paragraph, List } from 'react-native-paper'
+import { List } from 'react-native-paper'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
 import Context from '../utils/context/Context'
+import parseISO from 'date-fns/parseISO'
+
 
 // Composants
 import Header from '../components/Header'
+import EventCardLight from '../components/EventCardLight'
 import Tiles from '../components/Tiles'
 import Button from '../components/Button'
 
 export default function Dashboard({ navigation }) {
   const [user, setUser] = useState({})
+  const [events, setEvents] = useState([])
   const { getUserId } = useContext(Context)
   const getUser = async () => {
     try {
@@ -23,11 +27,37 @@ export default function Dashboard({ navigation }) {
     }
   }
 
+  const getCustomerEvents = async () => {
+    try {
+      const storedUser = await getUserId()
+      API.get(`/getAllEventsFromCustomer/${storedUser.id}`)
+        .then(res => setEvents(res.data))
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+
+  const displayEvent = (list, range) => {
+    let display
+    if(range === 'past') {
+      display = list.filter(event => parseISO(event.eventDescription.startDate) < new Date())
+    } else if( range === 'future') {
+
+      display = list.filter(event => parseISO(event.eventDescription.startDate) > new Date())
+    }
+
+    return display
+      .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
+      .slice(0,2)
+      .map(e => <EventCardLight style={{padding:'10px'}} event={e} /> )
+  }
+
   useEffect(() => {
     getUser()
+    getCustomerEvents()
   }, [])
 
-  const [expanded, setExpanded] = React.useState(true);
+  const [expanded, setExpanded] = useState(true);
 
   const handlePress = () => setExpanded(!expanded);
 
@@ -56,34 +86,8 @@ export default function Dashboard({ navigation }) {
                 expanded={expanded}
                 onPress={handlePress}
               >
-                <Card style={theme.card}>
-                  <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
-                  <Card.Content>
-                    <Paragraph>Date prévue : </Paragraph>
-                    <Paragraph>Lieu : </Paragraph>
-                    <View style={{ marginTop: 5 }}>
-                      <Text>Statut :
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                          <Text style={theme.chip}>Exemple</Text>
-                        </View>
-                      </Text>
-                    </View>
-                  </Card.Content>
-                </Card>
-                <Card style={theme.card}>
-                  <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
-                  <Card.Content>
-                    <Paragraph>Date prévue : </Paragraph>
-                    <Paragraph>Lieu : </Paragraph>
-                    <View style={{ marginTop: 5 }}>
-                      <Text>Statut :
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                          <Text style={theme.chip}>Exemple</Text>
-                        </View>
-                      </Text>
-                    </View>
-                  </Card.Content>
-                </Card>
+                { displayEvent(events, 'future') }
+                <Button title="Voir plus" width={'40%'}onPress={() => navigation.navigate('ListEvents')} />
               </List.Accordion>
             </List.Section>
           </View>
@@ -95,34 +99,8 @@ export default function Dashboard({ navigation }) {
                 title="Évènements passés"
                 titleStyle={theme.title_3}
               >
-                <Card style={theme.card}>
-                  <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
-                  <Card.Content>
-                    <Paragraph>Date prévue : </Paragraph>
-                    <Paragraph>Lieu : </Paragraph>
-                    <View style={{ marginTop: 5 }}>
-                      <Text>Statut :
-                        <View>
-                          <Text style={theme.chip}>Exemple</Text>
-                        </View>
-                      </Text>
-                    </View>
-                  </Card.Content>
-                </Card>
-                <Card style={theme.card}>
-                  <Card.Title title="Nom de l'évènement" subtitle="Nom de l'entreprise" />
-                  <Card.Content>
-                    <Paragraph>Date prévue : </Paragraph>
-                    <Paragraph>Lieu : </Paragraph>
-                    <View style={{ marginTop: 5 }}>
-                      <Text>Statut :
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                          <Text style={theme.chip}>Exemple</Text>
-                        </View>
-                      </Text>
-                    </View>
-                  </Card.Content>
-                </Card>
+                { displayEvent(events, 'past') }
+                <Button title="Voir plus" width={'40%'}onPress={() => navigation.navigate('ListEvents')} />
               </List.Accordion>
             </List.Section>
           </View>

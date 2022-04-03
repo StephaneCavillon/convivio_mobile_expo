@@ -7,18 +7,17 @@ export default function Header(props) {
   const { user, userScreen } = props
   const [background, setBackground] = useState()
   const route=useRoute().name
-  console.log(route, 'route')
 
   useEffect(() => { // Permet de changer l'image du header selon le screen
     switch(route){
-      case 'Profile' : 
+      case 'Profile' :
       setBackground(require('../assets/img/statue-museum.jpg'))
       break;
-      case 'Dashboard' : 
+      case 'Dashboard' :
       setBackground(require('../assets/img/dashboard.jpg'))
       break;
     }
-  }, []) 
+  }, [])
 
   return(
     <View style={{
