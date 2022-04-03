@@ -11,7 +11,7 @@ export default function EventCardLight ({ event }) {
 
   return (
     <Card style={theme.card}>
-    <Card.Title title={event.eventTitle} subtitle="Nom de l'entreprise" />
+    <Card.Title title={event.eventTitle} subtitle={event.user.company?.name} />
     <Card.Content>
       <Paragraph>Date prévue : {format(parseISO(event.eventDescription.startDate), 'dd/MM/yyyy')} - {format(parseISO(event.eventDescription.endDate), 'dd/MM/yyyy')} </Paragraph>
       <Paragraph>Lieu : {event.eventDescription.city} </Paragraph>
