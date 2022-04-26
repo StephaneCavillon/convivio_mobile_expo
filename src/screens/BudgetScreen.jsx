@@ -13,11 +13,14 @@ export default function Budget({ navigation }) {
         </Appbar.Header>
       </View>
       <View style={{ marginHorizontal: 20, marginVertical: 20, flex: 1 }}>
-        <Text
-          style={theme.title_3}
-        >
-          Sélectionner un évènement
-        </Text>
+        <View style={{ alignItems: 'center' }}>
+          <Text style={theme.title_3}>
+            Répartition du budget
+          </Text>
+          <Text style={theme.paragraph}>
+            Au 25 avril 2022
+          </Text>
+        </View>
       </View>
     </View>
   )

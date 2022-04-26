@@ -11,19 +11,21 @@ export default function Filter(props) {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingBottom: 20 }}
-      >
+      paddingBottom: 20
+    }}
+    >
       <Text style={{
-            paddingLeft: 10,
-            fontSize: 16,
-            color: theme.colors.backdrop}}
+        paddingLeft: 10,
+        fontSize: 16,
+        color: theme.colors.backdrop
+      }}
       >Voir les évènements passés</Text>
       <Switch
         trackColor={{ false: theme.colors.disabled, true: theme.colors.paleOrange }}
         thumbColor={pastEvent ? theme.colors.orange : theme.colors.pureWhite}
-        onChange={ () => setPastEvent(!pastEvent) }
+        onChange={() => setPastEvent(!pastEvent)}
         value={pastEvent}
-        />
+      />
     </View>
   )
 }
