@@ -7,9 +7,9 @@ import format from 'date-fns/format'
 import { status } from '../utils/status'
 
 
-export default function EventCardLight ({ event }) {
+export default function EventCardLight ({ event, goTo }) {
   return (
-  <Card style={theme.card}>
+  <Card style={theme.card} onPress={ () => goTo(event)}>
     <Card.Title title={event.eventTitle} subtitle={event.user.company?.name} />
     <Card.Content>
       <Paragraph>Date prévue : {format(parseISO(event.eventDescription.startDate), 'dd/MM/yyyy')} - {format(parseISO(event.eventDescription.endDate), 'dd/MM/yyyy')} </Paragraph>

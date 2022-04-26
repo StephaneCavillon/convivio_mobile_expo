@@ -81,10 +81,10 @@ export default function Dashboard({ navigation }) {
           marginHorizontal: 30,
         }}>
           <View style={styles.tiles}>
-            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents', {events}) }} />
+            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents', { events }) }} />
             <Tiles title='Agenda' icon='calendar' onPress={() => { navigation.navigate('Calendar') }} />
             <Tiles title='Fichiers' icon='file-document-outline' onPress={() => { navigation.navigate('Documents') }} />
-            <Tiles title='Budget' icon='chart-bar' onPress={() => { navigation.navigate('Budget') }} />
+            <Tiles title='Budget' icon='chart-bar' onPress={() => { navigation.navigate('ListEvents', { events, budget:true }) }} />
           </View>
           <View style={{
             flex: 3,
