@@ -4,7 +4,6 @@ import { theme } from '../styles/theming'
 
 
 export default function Filter(props) {
-  console.log('props', props)
   const { pastEvent, setPastEvent } = props
 
   return (
