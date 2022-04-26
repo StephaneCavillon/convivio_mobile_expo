@@ -12,6 +12,14 @@ export default function App() {
   const getUserId = async () => {
     return JSON.parse(await AsyncStorage.getItem('user'))
   }
+  const getUserRole = async () => {
+    return JSON.parse(await AsyncStorage.getItem('role'))
+  }
+
+  const isStaff = () => {
+    return getUserRole() === 'staff'
+  }
+
 
   async function auth() {
     const isLogged = await AsyncStorage.getItem('isLogged')
@@ -25,7 +33,7 @@ export default function App() {
   useEffect(() => auth(), [isLogged])
 
   return (
-      <Context.Provider value={{  isLogged, setIsLogged , getUserId }}>
+      <Context.Provider value={{  isLogged, setIsLogged , getUserId, isStaff }}>
         <NavigationContainer ref={navigationRef}>
           { !isLogged ?
             <LoginStackNavigator/> :

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, StatusBar, View, Text, ScrollView } from 'react-native'
+import { StyleSheet, StatusBar, View, Text, ScrollView, LogBox } from 'react-native'
 import { List } from 'react-native-paper'
 import { theme } from '../styles/theming'
 import { API } from '../utils/api'
@@ -17,7 +17,7 @@ import Button from '../components/Button'
 export default function Dashboard({ navigation }) {
   const [user, setUser] = useState({})
   const [events, setEvents] = useState([])
-  const { getUserId } = useContext(Context)
+  const { getUserId, isStaff } = useContext(Context)
   const getUser = async () => {
     try {
       const storedUser = await getUserId()
@@ -25,6 +25,15 @@ export default function Dashboard({ navigation }) {
         .then(res => setUser(res.data))
     } catch (err) {
       console.log('error', err.response.request._response)
+    }
+  }
+
+  const getEvents = async () => {
+    try {
+      API.get('/getAllEvents')
+        .then(res => setEvents(res.data))
+    } catch (error) {
+      console.log('error', error)
     }
   }
 
@@ -49,13 +58,13 @@ export default function Dashboard({ navigation }) {
 
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
-      .slice(0, 2)
-      .map(e => <EventCardLight style={{ padding: '10px' }} event={e} />)
+      .slice(0,2)
+      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} /> )
   }
 
   useEffect(() => {
     getUser()
-    getCustomerEvents()
+    isStaff ? getEvents() : getCustomerEvents()
   }, [])
 
   const [expanded, setExpanded] = useState(true);
@@ -72,7 +81,7 @@ export default function Dashboard({ navigation }) {
           marginHorizontal: 30,
         }}>
           <View style={styles.tiles}>
-            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents') }} />
+            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents', {events}) }} />
             <Tiles title='Agenda' icon='calendar' onPress={() => { navigation.navigate('Calendar') }} />
             <Tiles title='Fichiers' icon='file-document-outline' onPress={() => { navigation.navigate('Documents') }} />
             <Tiles title='Budget' icon='chart-bar' onPress={() => { navigation.navigate('Budget') }} />
