@@ -11,6 +11,7 @@ import parseISO from 'date-fns/parseISO'
 import Header from '../components/Header'
 import EventCardLight from '../components/EventCardLight'
 import Tiles from '../components/Tiles'
+import ButtonOutlined from '../components/ButtonOutlined'
 import Button from '../components/Button'
 
 export default function Dashboard({ navigation }) {
@@ -39,17 +40,17 @@ export default function Dashboard({ navigation }) {
 
   const displayEvent = (list, range) => {
     let display
-    if(range === 'past') {
+    if (range === 'past') {
       display = list.filter(event => parseISO(event.eventDescription.startDate) < new Date())
-    } else if( range === 'future') {
+    } else if (range === 'future') {
 
       display = list.filter(event => parseISO(event.eventDescription.startDate) > new Date())
     }
 
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
-      .slice(0,2)
-      .map(e => <EventCardLight style={{padding:'10px'}} event={e} /> )
+      .slice(0, 2)
+      .map(e => <EventCardLight style={{ padding: '10px' }} event={e} />)
   }
 
   useEffect(() => {
@@ -86,8 +87,10 @@ export default function Dashboard({ navigation }) {
                 expanded={expanded}
                 onPress={handlePress}
               >
-                { displayEvent(events, 'future') }
-                <Button title="Voir plus" width={'40%'}onPress={() => navigation.navigate('ListEvents')} />
+                {displayEvent(events, 'future')}
+                <View>
+                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                </View>
               </List.Accordion>
             </List.Section>
           </View>
@@ -99,8 +102,10 @@ export default function Dashboard({ navigation }) {
                 title="Évènements passés"
                 titleStyle={theme.title_3}
               >
-                { displayEvent(events, 'past') }
-                <Button title="Voir plus" width={'40%'}onPress={() => navigation.navigate('ListEvents')} />
+                {displayEvent(events, 'past')}
+                <View>
+                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                </View>
               </List.Accordion>
             </List.Section>
           </View>

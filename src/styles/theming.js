@@ -115,6 +115,14 @@ export const theme = {
     justifyContent: 'center',
   },
 
+  button_outlined: {
+    marginTop: 20,
+    marginBottom: 20,
+    color: '#F25835',
+    height: 45,
+    justifyContent: 'center',
+  },
+
   paragraph: {
     paddingTop: 10,
     fontSize: 15,
