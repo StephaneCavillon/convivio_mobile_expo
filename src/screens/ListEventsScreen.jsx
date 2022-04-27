@@ -18,7 +18,7 @@ export default function ListEvents({navigation, route}) {
 
   const goTo = (event) => {
     const name = budget ? 'Budget' : 'Event'
-    navigation.navigate(name, { eventId: event._id })
+    navigation.navigate(name, { event: event })
   }
 
   const displayEvent = () => {

@@ -31,7 +31,7 @@ export default function Dashboard({ navigation }) {
   const getEvents = async () => {
     try {
       API.get('/getAllEvents')
-        .then(res => setEvents(res.data))
+        .then(res => setEvents(res?.data))
     } catch (error) {
       console.log('error', error)
     }
@@ -41,7 +41,7 @@ export default function Dashboard({ navigation }) {
     try {
       const storedUser = await getUserId()
       API.get(`/getAllEventsFromCustomer/${storedUser.id}`)
-        .then(res => setEvents(res.data))
+        .then(res => setEvents(res?.data))
     } catch (error) {
       console.log('error', error)
     }
