@@ -59,7 +59,7 @@ export default function Dashboard({ navigation }) {
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
       .slice(0,2)
-      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} /> )
+      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} displayStatus={ true } /> )
   }
 
   useEffect(() => {

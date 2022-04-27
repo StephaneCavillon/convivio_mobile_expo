@@ -31,7 +31,7 @@ export default function ListEvents({navigation, route}) {
 
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
-      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} goTo={goTo} /> )
+      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} goTo={goTo} displayStatus={ budget ? false : true } /> )
   }
 
   useEffect(() => {
