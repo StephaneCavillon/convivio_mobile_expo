@@ -58,8 +58,8 @@ export default function Dashboard({ navigation }) {
 
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
-      .slice(0,2)
-      .map((e,i) => <EventCardLight style={{padding:'10px'}} event={e} key={i} /> )
+      .slice(0, 2)
+      .map((e, i) => <EventCardLight style={{ padding: '10px' }} event={e} key={i} />)
   }
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function Dashboard({ navigation }) {
           marginHorizontal: 30,
         }}>
           <View style={styles.tiles}>
-            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents', {events}) }} />
+            <Tiles title='Events' icon='creation' onPress={() => { navigation.navigate('ListEvents', { events }) }} />
             <Tiles title='Agenda' icon='calendar' onPress={() => { navigation.navigate('Calendar') }} />
             <Tiles title='Fichiers' icon='file-document-outline' onPress={() => { navigation.navigate('Documents') }} />
             <Tiles title='Budget' icon='chart-bar' onPress={() => { navigation.navigate('Budget') }} />

@@ -51,7 +51,7 @@ export default function userProfile({ navigation }) {
                 <UserAvatar user={user} />
               ) : null}
               <Text style={theme.titleTop}>
-                Nom d'utilisateur
+                Nom de l'utilisateur
               </Text>
             </View>
             <View

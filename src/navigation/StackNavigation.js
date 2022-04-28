@@ -42,7 +42,7 @@ function MainStackNavigator() {
     >
       <Stack.Screen name="Dashboard" component={ Dashboard } />
       <Stack.Screen name="Calendar" component={ CalendarScreen } />
-      <Stack.Screen name="Event" component={ EventScreen } getId={({ params }) => params.eventId}/>
+      <Stack.Screen name="Event" component={ EventScreen } />
       <Stack.Screen name="ListEvents" component={ ListEvents } />
       <Stack.Screen name="Budget" component={ Budget } />
       <Stack.Screen name="Contact" component={ ContactScreen } />
