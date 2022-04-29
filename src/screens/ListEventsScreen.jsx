@@ -55,7 +55,6 @@ export default function ListEvents({ navigation, route }) {
           <View style={{
             flex: 3,
           }}>
-            <Button title='Fiche event' onPress={() => navigation.navigate('Event')} />
             <List.Section style={{ marginTop: -20 }}>
               {displayEvent()}
             </List.Section>
