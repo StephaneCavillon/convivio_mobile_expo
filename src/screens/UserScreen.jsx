@@ -152,11 +152,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.lastname && errors.lastname && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.lastname}</Text>
-                      )
-                    }
+                  { touched.lastname && errors.lastname && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.lastname}</Text>
+                  )}
                   <Text style={theme.label}>Prénom</Text>
                   <TextInput
                     style={theme.input}
@@ -169,11 +167,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.fistname && errors.fistname && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.fistname}</Text>
-                      )
-                    }
+                  { touched.fistname && errors.fistname && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.fistname}</Text>
+                  )}
                   <Text style={theme.label}>Numéro de téléphone</Text>
                   <TextInput
                     style={theme.input}
@@ -185,11 +181,9 @@ export default function userProfile({ navigation }) {
                     onBlur={handleBlur('phone')}
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.phone && errors.phone && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.phone}</Text>
-                      )
-                    }
+                  { touched.phone && errors.phone && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.phone}</Text>
+                  )}
                   <Text style={theme.label}>E-mail de contact</Text>
                   <TextInput
                     style={theme.input}
@@ -201,11 +195,9 @@ export default function userProfile({ navigation }) {
                     onBlur={handleBlur('mail')}
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.mail && errors.mail && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.mail}</Text>
-                      )
-                    }
+                  { touched.mail && errors.mail && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.mail}</Text>
+                  )}
                   <Text style={theme.label}>Entreprise</Text>
                   <TextInput
                     style={theme.input}
@@ -218,11 +210,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.company && errors.company && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.company}</Text>
-                      )
-                    }
+                  { touched.company && errors.company && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.company}</Text>
+                  )}
                   <Text style={theme.label}>siret</Text>
                   <TextInput
                     style={theme.input}
@@ -235,11 +225,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.siret && errors.siret && (
-                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.siret}</Text>
-                      )
-                    }
+                  { touched.siret && errors.siret && (
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.siret}</Text>
+                  )}
                   <Text style={theme.label}>Adresse de l'entreprise</Text>
                   <TextInput
                     style={theme.input}
@@ -252,11 +240,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.address && errors.address && (
-                        <Text style={{ fontSize: 30, color: 'red' }}>{errors.address}</Text>
-                      )
-                    }
+                  { touched.address && errors.address && (
+                    <Text style={{ fontSize: 30, color: 'red' }}>{errors.address}</Text>
+                  )}
                   <Text style={theme.label}>CP et Ville</Text>
                   <TextInput
                     style={theme.input}
@@ -269,11 +255,9 @@ export default function userProfile({ navigation }) {
                     autoCapitalize='sentences'
                     right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                   />
-                  {
-                    touched.city && errors.city && (
-                        <Text style={{ fontSize: 30, color: 'red' }}>{errors.city}</Text>
-                      )
-                    }
+                  { touched.city && errors.city && (
+                    <Text style={{ fontSize: 30, color: 'red' }}>{errors.city}</Text>
+                  )}
                   <List.Section style={{ marginTop: 30 }}>
                     <List.Accordion
                       title="Complément d'adresse"
