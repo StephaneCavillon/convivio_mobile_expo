@@ -79,7 +79,7 @@ export default function EventScreen({ navigation, route }) {
                   Confidentialité
                 </Text>
                 <View style={{ fontSize: 16, marginBottom: 5, flexDirection: 'column' }}>
-                  <RadioButton.Group >
+                  <RadioButton.Group>
                     <RadioButton.Item color={theme.colors.orange} label="Privé" status={event.eventDescription.public ? 'unchecked' : 'checked'} />
                     <RadioButton.Item color={theme.colors.orange} label="Public" status={!event.eventDescription.public ? 'unchecked' : 'checked'} />
                   </RadioButton.Group>

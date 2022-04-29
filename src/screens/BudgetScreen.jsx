@@ -9,9 +9,9 @@ import EventCardLight from '../components/EventCardLight'
 
 
 export default function Budget({ navigation, route }) {
-  const [ LeftBudget, setLeftBudget ] = useState(0)
+  const [LeftBudget, setLeftBudget] = useState(0)
   const event = route.params.event
-  const c = [theme.colors.orange, theme.colors.beige]
+  const c = [theme.colors.orange, theme.colors.paleOrange]
   const k = {
     location: "Location",
     service: "Prestataires"
@@ -23,16 +23,16 @@ export default function Budget({ navigation, route }) {
 
   const setData = () => {
     return Object.entries(event.price)
-    .slice(1)
-    .map(([key, value], i) => {
-      return {
-        name: k[key],
-        price: Number(value),
-        color: c[i],
-        legendFontColor: theme.colors.pureBlack,
-        legendFontSize: 15
-      }
-    })
+      .slice(1)
+      .map(([key, value], i) => {
+        return {
+          name: k[key],
+          price: Number(value),
+          color: c[i],
+          legendFontColor: theme.colors.pureBlack,
+          legendFontSize: 15
+        }
+      })
   }
 
   useEffect(() => {
@@ -52,10 +52,10 @@ export default function Budget({ navigation, route }) {
             Répartition du budget
           </Text>
           <Text style={theme.paragraph}>
-            Au { format(parseISO(event.updatedAt), 'PPP', {locale: fr}) }
+            Au {format(parseISO(event.updatedAt), 'PPP', { locale: fr })}
           </Text>
           <PieChart
-            data={ setData() }
+            data={setData()}
             width={Dimensions.get('window').width - 16}
             height={220}
             chartConfig={{
@@ -73,59 +73,59 @@ export default function Budget({ navigation, route }) {
               borderRadius: 16,
             }}
             accessor="price"
-            avoidFalseZero={ true }
+            avoidFalseZero={true}
             backgroundColor="transparent"
             paddingLeft="5"
           ></PieChart>
-          </View>
-          <Text style={theme.label}>
-            &#201;vènement concerné
-          </Text>
-          <EventCardLight event={event}></EventCardLight>
-          <Text style={theme.label}>
-            Budget client
-          </Text>
-          <TextInput
-            disabled
-            style={theme.input}
-            selectionColor={theme.colors.orange}
-            theme={{ colors: { primary: theme.colors.orange } }}
-            value={String(event.price.budget)}
-            autoCapitalize='sentences'
-              />
-          <Text style={theme.label}>
-            Coût location de matériel
-          </Text>
-          <TextInput
-            disabled
-            style={theme.input}
-            selectionColor={theme.colors.orange}
-            theme={{ colors: { primary: theme.colors.orange } }}
-            value={String(event.price.location)}
-            autoCapitalize='sentences'
-              />
-          <Text style={theme.label}>
-            Coût prestation de services
-          </Text>
-          <TextInput
-            disabled
-            style={theme.input}
-            selectionColor={theme.colors.orange}
-            theme={{ colors: { primary: theme.colors.orange } }}
-            value={String(event.price.service)}
-            autoCapitalize='sentences'
-              />
-          <Text style={theme.label}>
-            Budget Restant
-          </Text>
-          <TextInput
-            disabled
-            style={theme.input}
-            selectionColor={theme.colors.orange}
-            theme={{ colors: { primary: theme.colors.orange } }}
-            value={String(LeftBudget)}
-            autoCapitalize='sentences'
-              />
+        </View>
+        <Text style={theme.label}>
+          &#201;vènement concerné
+        </Text>
+        <EventCardLight event={event}></EventCardLight>
+        <Text style={theme.label}>
+          Budget client
+        </Text>
+        <TextInput
+          disabled
+          style={theme.input}
+          selectionColor={theme.colors.orange}
+          theme={{ colors: { primary: theme.colors.orange } }}
+          value={String(event.price.budget)}
+          autoCapitalize='sentences'
+        />
+        <Text style={theme.label}>
+          Coût location de matériel
+        </Text>
+        <TextInput
+          disabled
+          style={theme.input}
+          selectionColor={theme.colors.orange}
+          theme={{ colors: { primary: theme.colors.orange } }}
+          value={String(event.price.location)}
+          autoCapitalize='sentences'
+        />
+        <Text style={theme.label}>
+          Coût prestation de services
+        </Text>
+        <TextInput
+          disabled
+          style={theme.input}
+          selectionColor={theme.colors.orange}
+          theme={{ colors: { primary: theme.colors.orange } }}
+          value={String(event.price.service)}
+          autoCapitalize='sentences'
+        />
+        <Text style={theme.label}>
+          Budget Restant
+        </Text>
+        <TextInput
+          disabled
+          style={theme.input}
+          selectionColor={theme.colors.orange}
+          theme={{ colors: { primary: theme.colors.orange } }}
+          value={String(LeftBudget)}
+          autoCapitalize='sentences'
+        />
 
       </View>
     </ScrollView>

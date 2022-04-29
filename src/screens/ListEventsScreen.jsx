@@ -6,7 +6,6 @@ import EventCardLight from '../components/EventCardLight'
 import { Appbar } from 'react-native-paper'
 import { theme } from '../styles/theming'
 import parseISO from 'date-fns/parseISO'
-import Button from '../components/Button'
 
 
 export default function ListEvents({ navigation, route }) {
