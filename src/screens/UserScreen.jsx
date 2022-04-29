@@ -15,7 +15,7 @@ import Button from '../components/Button'
 import UserAvatar from '../components/UserAvatar'
 
 export default function userProfile({ navigation }) {
-  const [ loading, setLoading ] = useState(true)
+  const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
   const { getUserId } = useContext(Context)
 
@@ -57,7 +57,7 @@ export default function userProfile({ navigation }) {
   }
 
   const updateUser = (values) => {
-    try{
+    try {
       return API.patch(`/updateUser/${values._id}`, buildUserModel(values)[0])
     } catch (err) {
       console.log('error', err)
@@ -111,194 +111,210 @@ export default function userProfile({ navigation }) {
           <Header
             userScreen={true}
           />
-          { loading ?
-            <ActivityIndicator color={theme.colors.orange}/> :
+          {loading ?
+            <ActivityIndicator color={theme.colors.orange} /> :
             <Formik
-              enableReinitialize={ true }
-              validationSchema={ validationSchema }
-              initialValues= { buildInitials(user) }
-              onSubmit={ values => updateUser({...values})}
-              >
+              enableReinitialize={true}
+              validationSchema={validationSchema}
+              initialValues={buildInitials(user)}
+              onSubmit={values => updateUser({ ...values })}
+            >
               {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-              <View style={{ marginHorizontal: 20, flex: 7 }}>
-                <View style={{
-                  flexDirection: "column",
-                  alignItems: "center",
-                  top: -55,
-                }}>
-                  {user ? (
-                    <UserAvatar user={user} />
-                  ) : null}
-                  <Text style={theme.titleTop}>
-                    {user.firstname.concat(' ', user.lastname)}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flex: 3,
-                    flexDirection: 'column',
-                    marginTop: -25,
-                  }}
-                >
-                  <Text style={{ fontSize: 15, paddingBottom: 5, color: theme.colors.falseBlack }}>Nom</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="lastname"
-                    value={values.lastname}
-                    onChangeText={handleChange('lastname')}
-                    onBlur={handleBlur('lastname')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.lastname && errors.lastname && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.lastname}</Text>
-                  )}
-                  <Text style={theme.label}>Prénom</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="firstname"
-                    value={values.firstname}
-                    onChangeText={handleChange('firstname')}
-                    onBlur={handleBlur('firstname')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.fistname && errors.fistname && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.fistname}</Text>
-                  )}
-                  <Text style={theme.label}>Numéro de téléphone</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="phone"
-                    value={values.phone}
-                    onChangeText={handleChange('phone')}
-                    onBlur={handleBlur('phone')}
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.phone && errors.phone && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.phone}</Text>
-                  )}
-                  <Text style={theme.label}>E-mail de contact</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="mail"
-                    value={values.mail}
-                    onChangeText={handleChange('mail')}
-                    onBlur={handleBlur('mail')}
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.mail && errors.mail && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.mail}</Text>
-                  )}
-                  <Text style={theme.label}>Entreprise</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="company"
-                    value={values.company}
-                    onChangeText={handleChange('company')}
-                    onBlur={handleBlur('company')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.company && errors.company && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.company}</Text>
-                  )}
-                  <Text style={theme.label}>siret</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="siret"
-                    value={values.siret}
-                    onChangeText={handleChange('siret')}
-                    onBlur={handleBlur('siret')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.siret && errors.siret && (
-                    <Text style={{ fontSize: 12, color: 'red' }}>{errors.siret}</Text>
-                  )}
-                  <Text style={theme.label}>Adresse de l'entreprise</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="address"
-                    value={values.address}
-                    onChangeText={handleChange('address')}
-                    onBlur={handleBlur('address')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.address && errors.address && (
-                    <Text style={{ fontSize: 30, color: 'red' }}>{errors.address}</Text>
-                  )}
-                  <Text style={theme.label}>CP et Ville</Text>
-                  <TextInput
-                    style={theme.input}
-                    selectionColor={theme.colors.orange}
-                    theme={{ colors: { primary: theme.colors.orange } }}
-                    name="city"
-                    value={values.city}
-                    onChangeText={handleChange('city')}
-                    onBlur={handleBlur('city')}
-                    autoCapitalize='sentences'
-                    right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                  />
-                  { touched.city && errors.city && (
-                    <Text style={{ fontSize: 30, color: 'red' }}>{errors.city}</Text>
-                  )}
-                  <List.Section style={{ marginTop: 30 }}>
-                    <List.Accordion
-                      title="Complément d'adresse"
-                      titleStyle={theme.title_2}
-                    >
-                      <Text style={theme.label}>Complément d'adresse</Text>
-                      <TextInput
-                        style={theme.input}
-                        selectionColor={theme.colors.orange}
-                        theme={{ colors: { primary: theme.colors.orange } }}
-                        placeholder="Ex : Bâtiment C"
-                        autoCapitalize='sentences'
-                        right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                      />
-                      <Text style={theme.label}>Étage</Text>
-                      <TextInput
-                        style={theme.input}
-                        selectionColor={theme.colors.orange}
-                        theme={{ colors: { primary: theme.colors.orange } }}
-                        placeholder="Ex : 3"
-                        right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                      />
-                      <Text style={theme.label}>Lieu-dit</Text>
-                      <TextInput
-                        style={theme.input}
-                        selectionColor={theme.colors.orange}
-                        theme={{ colors: { primary: theme.colors.orange } }}
-                        placeholder="Ex : Tour Eiffel"
-                        autoCapitalize='sentences'
-                        right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
-                      />
-                    </List.Accordion>
-                  </List.Section>
-                  <View style={{ flex: 0.6 }}>
-                    <Button
-                      onPress={handleSubmit}
-                      title="Mettre à jour"
+                <View style={{ marginHorizontal: 20, flex: 7 }}>
+                  <View style={{
+                    flexDirection: "column",
+                    alignItems: "center",
+                    top: -55,
+                  }}>
+                    {user ? (
+                      <UserAvatar user={user} />
+                    ) : null}
+                    <Text style={theme.titleTop}>
+                      {user.firstname.concat(' ', user.lastname)}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flex: 3,
+                      flexDirection: 'column',
+                      marginTop: -25,
+                    }}
+                  >
+                    <Text style={{ fontSize: 15, paddingBottom: 5, color: theme.colors.falseBlack }}>Nom</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="lastname"
+                      value={values.lastname}
+                      onChangeText={handleChange('lastname')}
+                      onBlur={handleBlur('lastname')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
                     />
+                    {
+                      touched.lastname && errors.lastname && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.lastname}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>Prénom</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="firstname"
+                      value={values.firstname}
+                      onChangeText={handleChange('firstname')}
+                      onBlur={handleBlur('firstname')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.fistname && errors.fistname && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.fistname}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>Numéro de téléphone</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="phone"
+                      value={values.phone}
+                      onChangeText={handleChange('phone')}
+                      onBlur={handleBlur('phone')}
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.phone && errors.phone && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.phone}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>E-mail de contact</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="mail"
+                      value={values.mail}
+                      onChangeText={handleChange('mail')}
+                      onBlur={handleBlur('mail')}
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.mail && errors.mail && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.mail}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>Entreprise</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="company"
+                      value={values.company}
+                      onChangeText={handleChange('company')}
+                      onBlur={handleBlur('company')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.company && errors.company && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.company}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>siret</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="siret"
+                      value={values.siret}
+                      onChangeText={handleChange('siret')}
+                      onBlur={handleBlur('siret')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.siret && errors.siret && (
+                        <Text style={{ fontSize: 12, color: 'red' }}>{errors.siret}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>Adresse de l'entreprise</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="address"
+                      value={values.address}
+                      onChangeText={handleChange('address')}
+                      onBlur={handleBlur('address')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.address && errors.address && (
+                        <Text style={{ fontSize: 30, color: 'red' }}>{errors.address}</Text>
+                      )
+                    }
+                    <Text style={theme.label}>CP et Ville</Text>
+                    <TextInput
+                      style={theme.input}
+                      selectionColor={theme.colors.orange}
+                      theme={{ colors: { primary: theme.colors.orange } }}
+                      name="city"
+                      value={values.city}
+                      onChangeText={handleChange('city')}
+                      onBlur={handleBlur('city')}
+                      autoCapitalize='sentences'
+                      right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                    />
+                    {
+                      touched.city && errors.city && (
+                        <Text style={{ fontSize: 30, color: 'red' }}>{errors.city}</Text>
+                      )
+                    }
+                    <List.Section style={{ marginTop: 30 }}>
+                      <List.Accordion
+                        title="Complément d'adresse"
+                        titleStyle={theme.title_2}
+                      >
+                        <Text style={theme.label}>Complément d'adresse</Text>
+                        <TextInput
+                          style={theme.input}
+                          selectionColor={theme.colors.orange}
+                          theme={{ colors: { primary: theme.colors.orange } }}
+                          placeholder="Ex : Bâtiment C"
+                          autoCapitalize='sentences'
+                          right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                        />
+                        <Text style={theme.label}>Étage</Text>
+                        <TextInput
+                          style={theme.input}
+                          selectionColor={theme.colors.orange}
+                          theme={{ colors: { primary: theme.colors.orange } }}
+                          placeholder="Ex : 3"
+                          right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                        />
+                        <Text style={theme.label}>Lieu-dit</Text>
+                        <TextInput
+                          style={theme.input}
+                          selectionColor={theme.colors.orange}
+                          theme={{ colors: { primary: theme.colors.orange } }}
+                          placeholder="Ex : Tour Eiffel"
+                          autoCapitalize='sentences'
+                          right={<TextInput.Icon name="pencil" color={theme.colors.orange} />}
+                        />
+                      </List.Accordion>
+                    </List.Section>
+                    <View style={{ flex: 0.6 }}>
+                      <Button
+                        onPress={handleSubmit}
+                        title="Mettre à jour"
+                      />
+                    </View>
                   </View>
                 </View>
-              </View>
               )}
             </Formik>
           }

@@ -1,7 +1,3 @@
-import { CurrentRenderContext } from '@react-navigation/native'
-import { StyleSheet } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-
 export const theme = {
   colors: {
     orange: '#F25835',
@@ -70,6 +66,13 @@ export const theme = {
     color: '#222222',
   },
 
+  title_enterprise: {
+    fontSize: 16,
+    color: '#7B7B7B',
+    textAlign: 'center',
+    marginHorizontal: 65,
+  },
+
   titleTop: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -94,8 +97,16 @@ export const theme = {
   },
 
   label: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '400',
+    paddingBottom: 5,
+    marginTop: 20,
+    color: '#222222'
+  },
+
+  label_2: {
+    fontSize: 16,
+    fontWeight: 'bold',
     paddingBottom: 5,
     marginTop: 20,
     color: '#222222'
@@ -125,7 +136,7 @@ export const theme = {
 
   paragraph: {
     paddingTop: 10,
-    fontSize: 15,
+    fontSize: 16,
   },
 
   card: {

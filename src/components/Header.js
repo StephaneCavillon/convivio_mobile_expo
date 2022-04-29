@@ -16,6 +16,9 @@ export default function Header(props) {
       case 'Dashboard' :
       setBackground(require('../assets/img/dashboard.jpg'))
       break;
+      case 'Event' :
+      setBackground(require('../assets/img/concert.jpg'))
+      break;
     }
   }, [])
 
