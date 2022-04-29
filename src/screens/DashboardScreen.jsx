@@ -35,6 +35,9 @@ export default function Dashboard({ navigation }) {
       console.log('error', error)
     }
   }
+  const goToEvent = (event) => {
+    navigation.navigate('Event', { event })
+  }
 
   const getCustomerEvents = async () => {
     try {
@@ -58,7 +61,7 @@ export default function Dashboard({ navigation }) {
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
       .slice(0, 2)
-      .map((e, i) => <EventCardLight style={{ padding: '10px' }} event={e} key={i} displayStatus={true} />)
+      .map((e, i) => <EventCardLight style={{ padding: '10px' }} event={e} key={i} goTo={goToEvent} displayStatus={true} />)
   }
 
   useEffect(() => {
@@ -97,10 +100,7 @@ export default function Dashboard({ navigation }) {
               >
                 {displayEvent(events, 'future')}
                 <View>
-                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => {
-                    console.log('onPress', navigation)
-                    navigation.navigate('ListEvents', { events })
-                  }} />
+                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => navigation.navigate('ListEvents', { events })} />
                 </View>
               </List.Accordion>
             </List.Section>
