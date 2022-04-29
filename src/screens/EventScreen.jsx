@@ -6,12 +6,11 @@ import { API } from '../utils/api'
 
 // Import composants
 import Header from '../components/Header.js'
-import UserAvatar from '../components/UserAvatar'
 
 //@todo securité si user.Role === customer vérifier que l'id de l'user de l'évent est identique
 // /!\ sortie d'async storage en string
 
-export default function EventScreen({ route }) {
+export default function EventScreen({ navigation }) {
   // const [ event, setEvent ] = useState({})
   // const eventId  = route.params.eventId
 
