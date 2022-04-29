@@ -11,7 +11,6 @@ import parseISO from 'date-fns/parseISO'
 import Header from '../components/Header'
 import EventCardLight from '../components/EventCardLight'
 import Tiles from '../components/Tiles'
-import ButtonOutlined from '../components/ButtonOutlined'
 import Button from '../components/Button'
 
 export default function Dashboard({ navigation }) {
@@ -36,6 +35,9 @@ export default function Dashboard({ navigation }) {
       console.log('error', error)
     }
   }
+  const goToEvent = (event) => {
+    navigation.navigate('Event', { event })
+  }
 
   const getCustomerEvents = async () => {
     try {
@@ -59,7 +61,7 @@ export default function Dashboard({ navigation }) {
     return display
       .sort((a, b) => (a.eventDescription.startDate < b.eventDescription.startDate) ? -1 : 1)
       .slice(0, 2)
-      .map((e, i) => <EventCardLight style={{ padding: '10px' }} event={e} key={i} displayStatus={true} />)
+      .map((e, i) => <EventCardLight style={{ padding: '10px' }} event={e} key={i} goTo={goToEvent} displayStatus={true} />)
   }
 
   useEffect(() => {
@@ -98,7 +100,7 @@ export default function Dashboard({ navigation }) {
               >
                 {displayEvent(events, 'future')}
                 <View>
-                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => navigation.navigate('ListEvents', { events })} />
                 </View>
               </List.Accordion>
             </List.Section>
@@ -113,7 +115,7 @@ export default function Dashboard({ navigation }) {
               >
                 {displayEvent(events, 'past')}
                 <View>
-                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => navigation.navigate('ListEvents', { events })} />
                 </View>
               </List.Accordion>
             </List.Section>

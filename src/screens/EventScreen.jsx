@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { Appbar, Avatar, RadioButton } from 'react-native-paper'
 import { theme } from '../styles/theming'
-import { API } from '../utils/api'
-
+import { format, parseISO } from 'date-fns'
+import { status } from '../utils/status'
 // Import composants
 import Header from '../components/Header.js'
 
 //@todo securité si user.Role === customer vérifier que l'id de l'user de l'évent est identique
 // /!\ sortie d'async storage en string
 
-export default function EventScreen({ navigation }) {
+export default function EventScreen({ navigation, route }) {
   // const [ event, setEvent ] = useState({})
   // const eventId  = route.params.eventId
 
@@ -30,6 +30,7 @@ export default function EventScreen({ navigation }) {
   // }, [])
 
   const [value, setValue] = React.useState('first');
+  const event = route.params.event
 
   return (
     <View style={{ flex: 1 }}>
@@ -53,10 +54,10 @@ export default function EventScreen({ navigation }) {
             >
               <Avatar.Icon size={100} icon="creation" backgroundColor={theme.colors.orange} />
               <Text style={theme.titleTop}>
-                Convention d'entreprise
+                {event.eventTitle}
               </Text>
               <Text style={theme.title_enterprise}>
-                LA MANU - École Supérieure des Métiers du Numérique
+                {event.user.company?.name}
               </Text>
             </View>
             <View
@@ -69,28 +70,37 @@ export default function EventScreen({ navigation }) {
                 <Text style={theme.label_2}>
                   Type d'évènement
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>{event.eventDescription.eventType}</Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Description de l'évènement
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>{event.eventDescription.description}</Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Lieu
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>
+                  {event.eventDescription.address}
+                </Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>
+                  {[
+                    event.eventDescription.zipcode,
+                    event.eventDescription.city
+                  ].join(' ')
+                  }
+                </Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Confidentialité
                 </Text>
                 <View style={{ fontSize: 16, marginBottom: 5, flexDirection: 'column' }}>
-                  <RadioButton.Group onValueChange={value => setValue(value)} value={value} row={true}>
-                    <RadioButton.Item color={theme.colors.orange} label="Privé" value="first" />
-                    <RadioButton.Item color={theme.colors.orange} label="Public" value="second" />
+                  <RadioButton.Group >
+                    <RadioButton.Item color={theme.colors.orange} label="Privé" status={event.eventDescription.public ? 'unchecked' : 'checked'} />
+                    <RadioButton.Item color={theme.colors.orange} label="Public" status={!event.eventDescription.public ? 'unchecked' : 'checked'} />
                   </RadioButton.Group>
                 </View>
               </View>
@@ -98,25 +108,26 @@ export default function EventScreen({ navigation }) {
                 <Text style={theme.label_2}>
                   Nombre de personnes attendues
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>{event.eventDescription.numberOfPeople}</Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Budget alloué par l'entreprise
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>{event.price.budget} €</Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Statut
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>{status[event.status.status]}</Text>
               </View>
               <View>
                 <Text style={theme.label_2}>
                   Dernière modification en date
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>LA MANU</Text>
+                <Text style={{ fontSize: 16, marginBottom: 5 }}>
+                  {format(parseISO(event.updatedAt || event.createdAt), 'dd/MM/yyyy')}</Text>
               </View>
             </View>
           </View>
@@ -125,4 +136,3 @@ export default function EventScreen({ navigation }) {
     </View>
   )
 }
-
