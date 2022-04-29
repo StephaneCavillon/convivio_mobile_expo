@@ -33,7 +33,8 @@ export default function CalendarScreen({navigation}) {
           end: format(parseISO(event.eventDescription.endDate),'HH-mm'), // startDate format HH-mm
           firstname: event.user.firstname,
           lastname: event.user.lastname,
-          location: event.eventDescription.city
+          location: event.eventDescription.city,
+          event
         }
       }
     }).reduce((acc, current) => { // groupBy startDate

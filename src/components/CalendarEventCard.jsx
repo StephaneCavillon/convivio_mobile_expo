@@ -9,7 +9,7 @@ export function CalendarEventCard (props) {
   return (
     <TouchableOpacity
       style={firstItemInDay ? styles.firstItemInDay : styles.item}
-      onPress={() => navigate('Event', { eventId: item.eventId }) }
+      onPress={() => navigate('Event', { event: item.event, from:'agenda' }) }
     >
 
       <View style={{ justifyContent:'space-evenly',  fontWeight:'bold'}}>

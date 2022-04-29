@@ -4,7 +4,7 @@
     "slug": "convivio_mobile_expo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "src/assets/img/logo-convivio.png",
     "splash": {
       "image": "",
       "resizeMode": "contain",
@@ -21,9 +21,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
-        "backgroundColor": "#FFFFFF"
-      }
+        "foregroundImage": "src/assets/img/logo-convivio.png",
+        "backgroundColor": "#222222"
+      },
+      "package": "Convivio.mobile"
     },
     "web": {
       "favicon": ""
