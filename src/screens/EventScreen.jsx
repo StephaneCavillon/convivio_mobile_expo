@@ -87,12 +87,12 @@ export default function EventScreen({ navigation }) {
                 <Text style={theme.label_2}>
                   Confidentialité
                 </Text>
-                <Text style={{ fontSize: 16, marginBottom: 5 }}>
-                  <RadioButton.Group onValueChange={value => setValue(value)} value={value}>
+                <View style={{ fontSize: 16, marginBottom: 5, flexDirection: 'column' }}>
+                  <RadioButton.Group onValueChange={value => setValue(value)} value={value} row={true}>
                     <RadioButton.Item color={theme.colors.orange} label="Privé" value="first" />
                     <RadioButton.Item color={theme.colors.orange} label="Public" value="second" />
                   </RadioButton.Group>
-                </Text>
+                </View>
               </View>
               <View>
                 <Text style={theme.label_2}>
