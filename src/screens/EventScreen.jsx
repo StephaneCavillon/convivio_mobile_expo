@@ -12,24 +12,6 @@ import UserAvatar from '../components/UserAvatar'
 // /!\ sortie d'async storage en string
 
 export default function EventScreen({ route }) {
-  // const [ event, setEvent ] = useState({})
-  // const eventId  = route.params.eventId
-
-  // const getEvent = async () => {
-  //   try{
-  //     API.get(`/getEvent/${ eventId }`)
-  //       .then(res => {
-  //         setEvent(res.data)
-  //       })
-  //   } catch (err) {
-  //     console.log('error', err.response.request._response)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getEvent()
-  // }, [])
-
   const [value, setValue] = React.useState('first');
 
   return (

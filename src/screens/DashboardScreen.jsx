@@ -11,7 +11,6 @@ import parseISO from 'date-fns/parseISO'
 import Header from '../components/Header'
 import EventCardLight from '../components/EventCardLight'
 import Tiles from '../components/Tiles'
-import ButtonOutlined from '../components/ButtonOutlined'
 import Button from '../components/Button'
 
 export default function Dashboard({ navigation }) {
@@ -98,7 +97,10 @@ export default function Dashboard({ navigation }) {
               >
                 {displayEvent(events, 'future')}
                 <View>
-                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => {
+                    console.log('onPress', navigation)
+                    navigation.navigate('ListEvents', { events })
+                  }} />
                 </View>
               </List.Accordion>
             </List.Section>
@@ -113,7 +115,7 @@ export default function Dashboard({ navigation }) {
               >
                 {displayEvent(events, 'past')}
                 <View>
-                  <ButtonOutlined title="Voir plus" onPress={() => navigation.navigate('ListEvents')} />
+                  <Button mode="outlined" textColor={theme.colors.orange} title="Voir plus" onPress={() => navigation.navigate('ListEvents', { events })} />
                 </View>
               </List.Accordion>
             </List.Section>
